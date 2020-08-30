@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi tienda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+    <!--comienza header-->
+    <header class="header-contenedor">
+        <nav class="header-nav">
+            <div class="header-logo">ADA SHOP</div>
+            <div class="header-menu">Carrito</div>
+        </nav>
+        <div class="header-banner">
+            <div class="section-name">ELECTRÓNICA</div>
+        </div>
+    </header>
+    <!--termina header, comienza main-->
+    <main>
+        <!--comienza aside(filtros)-->
+        <aside class="aside-filtros">
+            <div class="filtros-titulo-contenedor">
+                <h2 class="filtros-titulo">FILTROS</h2>
+                <button class="filtros-boton"> Limpiar
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="filtros-contenedor">
+                <h3 class="filtros-busqueda-titulo">BÚSQUEDA</h3>
+                <div class="filtros-busqueda-contenedor">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="filtros-contenedor"></div>
+            <div class="filtros-contenedor"></div>
+        </aside>
+        <!--termina aside, comienza seccion productos-->
+        <section>
+            <div class="productos-menu">
+                <p class="productos-cantidad">Mostrando x producto(s) de x</p>
+                <div class="productos-botones-vista">
+                    Ver como
+                    <button class="vista-tabla">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="vista-lista">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            <!--termina menu productos, comienza seccion tabla productos-->
+            <div class="productos-tabla">
+                <div class="producto-tarjeta">
+                    <div class="producto-imagen-contenedor">
+                        <img class="producto-imagen" src="xiaomi.jpg">
+                    </div>
+                    <div class="producto-descripcion">
+                        <div class="producto-detalles">
+                            <h3 class="producto-nombre">Nombre del producto</h3>
+                            <p class="producto-precio">$ precio</p>
+                            <div class="producto-review">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="producto-comprar">
+                            <button class="boton-comprar">COMPRAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-tarjeta">
+                    <div class="producto-imagen-contenedor">
+                        <img class="producto-imagen" src="xiaomi.jpg">
+                    </div>
+                    <div class="producto-descripcion">
+                        <div class="producto-detalles">
+                            <h3 class="producto-nombre">Nombre del producto</h3>
+                            <p class="producto-precio">$precio</p>
+                            <div class="producto-review">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="producto-comprar">
+                            <button class="boton-comprar">COMPRAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-tarjeta">
+                    <div class="producto-imagen-contenedor">
+                        <img class="producto-imagen" src="xiaomi.jpg">
+                    </div>
+                    <div class="producto-descripcion">
+                        <div class="producto-detalles">
+                            <h3 class="producto-nombre">Nombre del producto</h3>
+                            <p class="producto-precio">$precio</p>
+                            <div class="producto-review">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="producto-comprar">
+                            <button class="boton-comprar">COMPRAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--termina main, comienza footer-->
+    <footer class="footer-contenedor">
+        <div class="footer-contenido">
+            <img src="" class="footer-logo">
+            <p class="footer-mensaje">ADA SHOP - Gracias por visitarnos</p>
+        </div>
+    </footer>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

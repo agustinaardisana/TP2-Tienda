@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header, main, aside, section, footer, .header-nav {
+    background-color: #8d5f5b;
+    border: 1px solid black;
+    display: flex;
+}
+
+header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3)
+}
+
+.header-nav {
+    height: 70px;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header-logo, .header-menu {
+    height: 35px;
+    display: flex;
+    border: 1px solid black;
+}
+
+.header-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d8a194;
+    border: 1px solid black;
+    height: 150px;
+    width: 100vw;
+}
+
+main {
+    height: 100vh;
+}
+
+aside {
+    flex-direction: column;
+    width: 20%;
+}
+
+
+section {
+    flex-direction: column;
+    width: 80%;
+}
+
+.productos-menu, .filtros-titulo-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.vista-table, .vista-lista, .producto-review, .filtros-boton, .filtros-busqueda-contenedor {
+    font-size: 20px;
+    color: black
+}
+.productos-tabla {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;    
+}
+.producto-tarjeta {
+    background-color: #d8a194;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+
+}
+.producto-imagen-contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+.producto-imagen {
+    height: 100%;
+    width: auto;
+}
+
+.producto-descripcion, .producto-detalles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
