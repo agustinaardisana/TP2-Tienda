@@ -1,15 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-header, main, aside, section, footer, .header-nav {
-    background-color: #8d5f5b;
-    border: 1px solid black;
+body {
+    background-color: #f5f5f5;
+}
+
+button {
+    border: 0;
+    border-radius: 5px;
+    margin-top: 15px;
+    background: transparent;
+}
+
+label {
     display: flex;
 }
-
+/*comienza header*/
 header {
+    width: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -17,40 +31,55 @@ header {
 }
 
 .header-nav {
+    display: flex;
     height: 70px;
-    width: 100vw;
+    width: 100%;
+    max-width: 1400px;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
 
+.logo {
+    width: 25px;
+    margin-right: 10px;
+}
 .header-logo, .header-menu {
-    height: 35px;
     display: flex;
-    border: 1px solid black;
 }
 
 .header-banner {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #d8a194;
-    border: 1px solid black;
-    height: 150px;
-    width: 100vw;
+    min-height: 300px;
+    width: 100%;
+    background-image: url('../TP2/Imagenes/banner.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
+h1 {
+    color: white;       
+}
+/*termina header, comienza main*/
 main {
+    display: flex;
     height: 100vh;
+    margin-top: 80px;
+    max-width: 1400px;
 }
-
+/*comienza aside(filtros)*/
 aside {
+    display: flex;
     flex-direction: column;
     width: 20%;
+    font-size: 12px;
+    font-weight: 600;
 }
-
-
+/*termina aside, comienza seccion menu productos*/
 section {
+    display: flex;
     flex-direction: column;
     width: 80%;
 }
@@ -59,24 +88,38 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
 }
 
-.vista-table, .vista-lista, .producto-review, .filtros-boton, .filtros-busqueda-contenedor {
+.filtros-titulo-contenedor, .filtros-contenedor {
+    padding: 0 35px 15px;
+}
+
+.producto-review {
+    color: #fbc02d;
+}
+
+.productos-menu {
+    background-color: white;
+    margin: 0 10px 10px;
+    padding: 25px 30px;
+}
+
+.vista-table, .vista-lista, .filtros-boton, .filtros-busqueda-contenedor, .header-menu {
     font-size: 20px;
     color: black
 }
+
+/*termina menu productos, comienza seccion tabla productos*/
 .productos-tabla {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;    
 }
 .producto-tarjeta {
-    background-color: #d8a194;
-    border: 1px solid black;
-    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
     margin: 10px;
-
+    padding: 30px 25px;
 }
 .producto-imagen-contenedor {
     display: flex;
@@ -89,6 +132,7 @@ section {
 .producto-imagen {
     height: 100%;
     width: auto;
+    margin: 0 auto;
 }
 
 .producto-descripcion, .producto-detalles {
@@ -98,9 +142,29 @@ section {
     align-items: center;
 }
 
-footer {
-    height: 100px;
-    justify-content: center;
-    align-items: center;
+.producto-descripcion {
+    padding: 0 20px;
+}
+
+.producto-comprar {
     padding: 20px;
+}
+
+.boton-comprar {
+    width: 100%;
+    height: 40px;
+}
+/*termina main, comienza footer*/
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 40px 10px 30px;
+    margin-top: 80px;
+    font-size: 14px;
+}
+
+.footer-contenido {
+    display: flex;
+    align-items: center;
 }
