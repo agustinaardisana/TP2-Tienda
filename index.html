@@ -18,8 +18,10 @@
                 <p>ADA SHOP</p>
             </div>
             <div class="header-menu">
+                <button class="boton-carrito">
                 <i class="fas fa-shopping-cart"></i>
                 Carrito (<span>0</span> items)
+            </button>
             </div>
         </nav>
         <div class="header-banner">
@@ -31,91 +33,105 @@
     <main>
         <!--comienza aside(filtros)-->
         <aside class="aside-filtros">
-            <div class="filtros-titulo-contenedor">
-                <h2 class="filtros-titulo">FILTROS</h2>
-                <button class="filtros-boton">
-                    <i class="fas fa-trash"></i>
-                    Limpiar
-                </button>
-            </div>
             <div class="filtros-contenedor">
-                <h3 class="filtros-busqueda-titulo">BÚSQUEDA</h3>
-                <label class="busqueda-contenedor" aria-label="búsqueda">
-                    <i class="fas fa-search"></i>
-                </label>
+                <div class="filtros-titulo-contenedor">
+                    <h2 class="filtros-titulo">FILTROS</h2>
+                    <button class="filtros-boton">
+                        <i class="fas fa-trash-alt"></i>
+                        Limpiar
+                    </button>
+                </div>
             </div>
-            <div class="filtros-contenedor">
-                <h3>CATEGORÍA</h3>
-                <label>CONSOLAS</label>
-                <label>NOTEBOOKS</label>
-                <label>CÁMARAS</label>
-                <label>CELULARES</label>
-                <label>ACCESORIOS</label>
-            </div>
-            <div class="filtros-contenedor">
-                <h3>PUNTAJE</h3>
-                <label>
-                    <div class="producto-review">
+            <form>
+                <div class="filtros-contenedor">
+                    <h3 class="filtros-busqueda-titulo">BÚSQUEDA</h3>
+                    <label for="barra-busqueda">
+                        <input name="buscar-productos" id="barra-busqueda" placeholder="Buscar productos" />
+                    </label>
+                </div>
+                <div class="filtros-contenedor">
+                    <h3>CATEGORÍA</h3>
+                    <label for="consolas">
+                        <input type="checkbox" name="categoria-consolas" id="consolas" />
+                        CONSOLAS
+                    </label>
+                    <label for="notebooks">
+                        <input type="checkbox" name="categoria-notebooks" id="notebooks" />
+                        NOTEBOOKS
+                    </label>
+                    <label for="camaras">
+                        <input type="checkbox" name="categoria-camaras" id="camaras" />
+                        CAMARAS
+                    </label>
+                    <label for="celulares">
+                        <input type="checkbox" name="categoria-celulares" id="celulares" />
+                        CELULARES
+                    </label>
+                    <label for="accesorios">
+                        <input type="checkbox" name="categoria-accesorios" id="accesorios" />
+                        ACCESORIOS
+                    </label>
+                </div>
+                <div class="filtros-contenedor">
+                    <h3>PUNTAJE</h3>
+                    <label for="5-estrellas">
+                        <input type="checkbox" name="review-cinco-estrellas" id="5-estrellas" />
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        (5)
+                    </label>
+                    <label for="4-estrellas">
+                        <input type="checkbox" name="review-cuatro-estrellas" id="4-estrellas" />
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        (4)
+                    </label>
+                    <label for="3-estrellas">
+                        <input type="checkbox" name="review-tres-estrellas" id="3-estrellas" />
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        (3)
+                    </label>
+                    <label for="2-estrellas">
+                        <input type="checkbox" name="review-dos-estrellas" id="2-estrellas" />
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        (2)
+                    </label>
+                    <label for="1-estrella">
+                        <input type="checkbox" name="review-una-estrella" id="1-estrella" />
+                        <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    (5)
-                </label>
-                <label>
-                    <div class="producto-review">
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    (4)
-                </label>
-                <label>
-                    <div class="producto-review">
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    (3)
-                </label>
-                <label>
-                    <div class="producto-review">
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    (2)
-                </label>
-                <label>
-                    <div class="producto-review">
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    (1)
-                </label>
-            </div>
+                        (1)
+                    </label>
+                </div>
+            </form>
         </aside>
         <!--termina aside, comienza seccion menu productos-->
         <section>
             <div class="productos-menu">
                 <p class="productos-cantidad">Mostrando <span>0</span> producto(s) de <span>12</span></p>
-                <div class="productos-botones-vista">
+                <div class="productos-botones-contenedor">
                     Ver como
-                    <button class="vista-tabla">
+                    <button class="boton-vista tabla">
                         <i class="fas fa-th"></i>
                     </button>
-                    <button class="vista-lista">
+                    <button class="boton-vista lista">
                         <i class="fas fa-list"></i>
                     </button>
                 </div>
