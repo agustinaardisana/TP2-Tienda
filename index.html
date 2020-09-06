@@ -19,9 +19,9 @@
             </div>
             <div class="header-menu">
                 <button class="boton-carrito">
-                <i class="fas fa-shopping-cart"></i>
-                Carrito (<span>0</span> items)
-            </button>
+                    <i class="fas fa-shopping-cart"></i>
+                    Carrito (<span>0</span> items)
+                </button>
             </div>
         </nav>
         <div class="header-banner">
@@ -52,30 +52,36 @@
                 <div class="filtros-contenedor">
                     <h3>CATEGORÍA</h3>
                     <label for="consolas">
-                        <input type="checkbox" name="categoria-consolas" id="consolas" />
+                        <input class="filtro-categoria" type="checkbox" name="categoria-consolas" id="consolas"
+                            value="consolas" />
                         CONSOLAS
                     </label>
                     <label for="notebooks">
-                        <input type="checkbox" name="categoria-notebooks" id="notebooks" />
+                        <input class="filtro-categoria" type="checkbox" name="categoria-notebooks" id="notebooks"
+                            value="notebooks" />
                         NOTEBOOKS
                     </label>
                     <label for="camaras">
-                        <input type="checkbox" name="categoria-camaras" id="camaras" />
+                        <input class="filtro-categoria" type="checkbox" name="categoria-camaras" id="camaras"
+                            value="camaras" />
                         CAMARAS
                     </label>
                     <label for="celulares">
-                        <input type="checkbox" name="categoria-celulares" id="celulares" />
+                        <input class="filtro-categoria" type="checkbox" name="categoria-celulares" id="celulares"
+                            value="celulares" />
                         CELULARES
                     </label>
                     <label for="accesorios">
-                        <input type="checkbox" name="categoria-accesorios" id="accesorios" />
+                        <input class="filtro-categoria" type="checkbox" name="categoria-accesorios" id="accesorios"
+                            value="accesorios" />
                         ACCESORIOS
                     </label>
                 </div>
                 <div class="filtros-contenedor">
                     <h3>PUNTAJE</h3>
                     <label for="5-estrellas">
-                        <input type="checkbox" name="review-cinco-estrellas" id="5-estrellas" />
+                        <input class="filtro-review" type="checkbox" name="review-cinco-estrellas" id="5-estrellas"
+                            value="5" />
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -84,7 +90,8 @@
                         (5)
                     </label>
                     <label for="4-estrellas">
-                        <input type="checkbox" name="review-cuatro-estrellas" id="4-estrellas" />
+                        <input class="filtro-review" type="checkbox" name="review-cuatro-estrellas" id="4-estrellas"
+                            value="4" />
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -93,7 +100,8 @@
                         (4)
                     </label>
                     <label for="3-estrellas">
-                        <input type="checkbox" name="review-tres-estrellas" id="3-estrellas" />
+                        <input class="filtro-review" type="checkbox" name="review-tres-estrellas" id="3-estrellas"
+                            value="3" />
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -102,7 +110,8 @@
                         (3)
                     </label>
                     <label for="2-estrellas">
-                        <input type="checkbox" name="review-dos-estrellas" id="2-estrellas" />
+                        <input class="filtro-review" type="checkbox" name="review-dos-estrellas" id="2-estrellas"
+                            value="2" />
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
@@ -111,7 +120,8 @@
                         (2)
                     </label>
                     <label for="1-estrella">
-                        <input type="checkbox" name="review-una-estrella" id="1-estrella" />
+                        <input class="filtro-review" type="checkbox" name="review-una-estrella" id="1-estrella"
+                            value="1" />
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
@@ -138,18 +148,63 @@
             </div>
             <!--termina menu productos, comienza seccion tabla productos-->
             <div class="productos-tabla">
-                <div class="producto-tarjeta">
+                <article class="producto-tarjeta" data-nombre="celular xiaomi" data-categoria="celulares"
+                    data-precio="1000" data-review="5">
                     <div class="producto-imagen-contenedor">
                         <img class="producto-imagen" src="../TP2/Imagenes/xiaomi.jpg">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
-                            <h3 class="producto-nombre">Nombre del producto</h3>
-                            <p class="producto-precio">$ precio</p>
+                            <h3 class="producto-nombre">Celular Xiaomi</h3>
+                            <p class="producto-precio">$ 1000</p>
                             <div class="producto-review">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="producto-comprar">
+                            <button class="boton-comprar">COMPRAR</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="producto-tarjeta" data-nombre="celular samsung" data-categoria="celulares"
+                    data-precio="2500" data-review="4">
+                    <div class="producto-imagen-contenedor">
+                        <img class="producto-imagen" src="../TP2/Imagenes/xiaomi.jpg">
+                    </div>
+                    <div class="producto-descripcion">
+                        <div class="producto-detalles">
+                            <h3 class="producto-nombre">Celular Samsung</h3>
+                            <p class="producto-precio">$ 2500</p>
+                            <div class="producto-review">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="producto-comprar">
+                            <button class="boton-comprar">COMPRAR</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="producto-tarjeta" data-nombre="iphone" data-categoria="celulares" data-precio="3200"
+                    data-review="3">
+                    <div class="producto-imagen-contenedor">
+                        <img class="producto-imagen" src="../TP2/Imagenes/xiaomi.jpg">
+                    </div>
+                    <div class="producto-descripcion">
+                        <div class="producto-detalles">
+                            <h3 class="producto-nombre">iPhone</h3>
+                            <p class="producto-precio">$ 3200</p>
+                            <div class="producto-review">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
                                 <i class="far fa-star"></i>
                             </div>
@@ -158,49 +213,7 @@
                             <button class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
-                </div>
-                <div class="producto-tarjeta">
-                    <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="../TP2/Imagenes/xiaomi.jpg">
-                    </div>
-                    <div class="producto-descripcion">
-                        <div class="producto-detalles">
-                            <h3 class="producto-nombre">Nombre del producto</h3>
-                            <p class="producto-precio">$precio</p>
-                            <div class="producto-review">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="producto-tarjeta">
-                    <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="../TP2/Imagenes/xiaomi.jpg">
-                    </div>
-                    <div class="producto-descripcion">
-                        <div class="producto-detalles">
-                            <h3 class="producto-nombre">Nombre del producto</h3>
-                            <p class="producto-precio">$precio</p>
-                            <div class="producto-review">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
-                        </div>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
     </main>

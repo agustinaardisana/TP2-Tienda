@@ -209,3 +209,8 @@ footer {
     display: flex;
     align-items: center;
 }
+
+/*Clases especiales*/
+.hidden {
+    display: none;
+}
