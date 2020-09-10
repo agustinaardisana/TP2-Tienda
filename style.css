@@ -21,6 +21,22 @@ button {
 label {
     display: flex;
 }
+
+h1 {
+    color: white;       
+}
+
+h3 {
+    margin: 14px 0;
+}
+
+/*Agrupo elementos de distintas secciones que comparten estilos*/
+.productos-menu, .filtros-titulo-contenedor, .carrito-titulo-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /*comienza header*/
 header {
     width: 100%;
@@ -72,15 +88,14 @@ header {
     background-position: center;
 }
 
-h1 {
-    color: white;       
-}
+
 /*termina header, comienza main*/
 main {
     display: flex;
     margin-top: 80px;
     max-width: 1400px;
 }
+
 /*comienza aside(filtros)*/
 aside {
     display: flex;
@@ -100,10 +115,6 @@ aside {
     padding: 0 20px;
 }
 
-h3 {
-    margin: 14px 0;
-}
-
 .fa-star {
     color: #fbc02d;
 }
@@ -112,13 +123,10 @@ h3 {
 section {
     display: flex;
     flex-direction: column;
-    width: 80%;
 }
 
-.productos-menu, .filtros-titulo-contenedor {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.productos-seccion {
+    width: 80%;
 }
 
 .filtros-contenedor {
@@ -191,7 +199,7 @@ section {
     padding: 20px;
 }
 
-.boton-comprar {
+.boton-comprar, .boton-vaciar {
     width: 100%;
     height: 40px;
 }
@@ -213,4 +221,27 @@ footer {
 /*Clases especiales*/
 .hidden {
     display: none;
+}
+
+/*termina footer, comienza secci'on carrito*/
+.boton-comprar .carrito {
+    background-color: green;
+}
+
+.boton-vaciar {
+    border: 1px solid red;
+}
+
+.carrito-seccion {
+    align-items: center;
+}
+
+.carrito-producto-tarjeta > div {
+    display: flex;
+    justify-content: space-between;
+}    
+
+/*Termina secci'on carrito, comienza secci'on checkout*/
+.checkout-seccion > div {
+    display: flex;
 }

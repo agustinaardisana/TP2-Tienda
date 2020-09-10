@@ -11,7 +11,7 @@
 
 <body>
     <!--comienza header-->
-    <header class="header-contenedor">
+    <header>
         <nav class="header-nav">
             <div class="header-logo">
                 <img class="logo" src="../TP2/Imagenes/ada.svg">
@@ -25,17 +25,17 @@
             </div>
         </nav>
         <div class="header-banner">
-            <h1 class="seccion-nombre">ELECTRÓNICA
+            <h1>ELECTRÓNICA
         </div>
         </h1>
     </header>
     <!--termina header, comienza main-->
     <main>
         <!--comienza aside(filtros)-->
-        <aside class="aside-filtros">
+        <aside>
             <div class="filtros-contenedor">
                 <div class="filtros-titulo-contenedor">
-                    <h2 class="filtros-titulo">FILTROS</h2>
+                    <h2>FILTROS</h2>
                     <button class="filtros-boton">
                         <i class="fas fa-trash-alt"></i>
                         Limpiar
@@ -44,7 +44,7 @@
             </div>
             <form>
                 <div class="filtros-contenedor">
-                    <h3 class="filtros-busqueda-titulo">BÚSQUEDA</h3>
+                    <h3>BÚSQUEDA</h3>
                     <label for="barra-busqueda">
                         <input name="buscar-productos" id="barra-busqueda" placeholder="Buscar productos" />
                     </label>
@@ -133,7 +133,7 @@
             </form>
         </aside>
         <!--termina aside, comienza seccion menu productos-->
-        <section>
+        <section class="productos-seccion">
             <div class="productos-menu">
                 <p class="productos-cantidad">Mostrando <span>0</span> producto(s) de <span>12</span></p>
                 <div class="productos-botones-contenedor">
@@ -149,20 +149,20 @@
             <!--termina menu productos, comienza seccion tabla productos-->
             <div class="productos-tabla">
                 <article class="producto-tarjeta" data-nombre="celular xiaomi" data-categoria="celulares"
-                    data-precio="1000" data-review="5">
+                    data-precio="22499" data-review="5">
                     <div class="producto-imagen-contenedor">
                         <img class="producto-imagen" src="../TP2/Imagenes/xiaomi.jpg">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
-                            <h3 class="producto-nombre">Celular Xiaomi</h3>
-                            <p class="producto-precio">$ 1000</p>
+                            <h3>Celular Xiaomi</h3>
+                            <p class="producto-precio">$ 22499</p>
                             <div class="producto-review">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -177,7 +177,7 @@
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
-                            <h3 class="producto-nombre">Celular Samsung</h3>
+                            <h3>Celular Samsung</h3>
                             <p class="producto-precio">$ 2500</p>
                             <div class="producto-review">
                                 <i class="fas fa-star"></i>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
-                            <h3 class="producto-nombre">iPhone</h3>
+                            <h3>iPhone</h3>
                             <p class="producto-precio">$ 3200</p>
                             <div class="producto-review">
                                 <i class="fas fa-star"></i>
@@ -224,6 +224,105 @@
             <p class="footer-mensaje">ADA SHOP - Gracias por visitarnos</p>
         </div>
     </footer>
+    <!--termina footer, comienza secci'on carrito-->
+    <section class="carrito-seccion">
+        <div class="carrito-titulo-contenedor">
+            <h2>Carrito</h2>
+            <button><i class="fas fa-times"></i></button>
+        </div>
+        <p class="mensaje-carrito-vacio">No tienes productos en el carrito, ¡agrega algunos!</p>
+        <p class="mensaje-carrito-lleno">1 producto/s agregado/s</p>
+        <div class="carrito-productos-agregados">
+            <article class="carrito-producto-tarjeta">
+                <img class="carrito-producto-imagen">
+                <div class="carrito-producto-detalles">
+                    <h3 class="carrito-producto-nombre">Nombre Producto</h3>
+                    <button class="boton-eliminar-producto">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="carrito-producto-precio-contenedor">
+                    <label for="carrito-producto-cantidad">
+                        <input id="carrito-producto-cantidad" type="number" value="1" />
+                        unidades
+                    </label>
+                    <p class="carrito-producto-precio"></p>
+                </div>
+            </article>
+        </div>
+        <p>Subtotal <span class="subtotal"></span></p>
+        <button class="boton-comprar carrito">COMPRAR</button>
+        <button class="boton-vaciar">VACIAR</button>
+    </section>
+
+    <section class="checkout-seccion">
+        <div class="checkout-formulario">
+            <div class="formulario-datos-personales">
+                <h3>Datos Personales</h3>
+                <form>
+                    <label for="nombre-apellido">
+                        Nombre y Apellido*
+                        <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace" required />
+                    </label>
+                    <label for="email">
+                        Email*
+                        <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" required />
+                    </label>
+                </form>
+            </div>
+            <div class="formulario-opciones-pago">
+                <h3>Opciones de Pago</h3>
+                <form>
+                    <label for="opciones-pago-efectivo">
+                        <input id="opciones-pago-efectivo" type="radio" name="opciones-pago"
+                            value="Efectivo / Débito" />
+                        Efectivo / Débito
+                    </label>
+                    <label for="opciones-pago-credito">
+                        <input id="opciones-pago-credito" type="radio" name="opciones-pago"
+                            value="Tarjeta de crédito" />
+                        Tarjeta de crédito
+                    </label>
+                    <label for="envio">
+                        <input id="envio" type="checkbox" name="envio" />
+                        Necesito envío
+                    </label>
+                    <label for="descuento">
+                        <input type="checkbox" name="descuento" id="descuento" />
+                        Tengo tarjeta de descuento
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class="checkout-resumen">
+            <h3>Resumen</h3>
+            <div>
+                <p class="carrito-subtotal">
+                    Subtotal
+                    <span class="carrito-subtotal-valor"></span>
+                </p>
+                <p class="carrito-descuento">
+                    Descuento 10%
+                    <span class="carrito-descuento-valor"></span>
+                </p>
+                <p class="carrito-envio">
+                    Envío
+                    <span class="carrito-envio-valor"></span>
+                </p>
+                <p class="carrito-recargo">
+                    Recargo
+                    <span class="carrito-recargo-valor"></span>
+                </p>
+                <p class="carrito-total">
+                    <span class="carrito-total-valor"></span>
+                </p>
+            </div>
+        </div>
+        <div>
+            <button class="boton-finalizar">FINALIZAR</button>
+            <button class="boton-seguir-comprando">SEGUIR COMPRANDO</button>
+        </div>
+    </section>
 
 
     <script src="index.js"></script>
