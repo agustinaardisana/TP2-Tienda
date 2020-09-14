@@ -3,6 +3,13 @@ const filtroNombre = document.querySelector('#barra-busqueda')
 const tarjetasProducto = document.getElementsByClassName('producto-tarjeta')
 const filtroRating = document.getElementsByClassName('filtro-review')
 const botonLimpiar = document.querySelector('.filtros-boton')
+const botonCerrarCarrito = document.querySelector('.carrito-cerrar-boton')
+const botonAbrirCarrito = document.querySelector('.boton-carrito')
+const ventanaCarrito = document.querySelector('.overlay.carrito')
+const body = document.body
+const botonAbrirCheckout = document.querySelector('.boton-comprar.carrito')
+const ventanaCheckout = document.querySelector('.overlay.checkout')
+const botonSeguirComprando = document.querySelector('.boton-seguir-comprando')
 
 //Filtro por búsqueda del usuario
 filtroNombre.oninput = () => {
@@ -110,4 +117,26 @@ botonLimpiar.onclick = () => {
     for (let tarjeta of tarjetasProducto) {
         tarjeta.classList.remove('hidden')
     }
+}
+
+//Abrir ventana del carrito
+botonAbrirCarrito.onclick = () => {
+    ventanaCarrito.classList.remove('hidden')
+    body.classList.add('no-scroll')
+}
+
+//Cerrar ventana del carrito
+botonCerrarCarrito.onclick = () => {
+    ventanaCarrito.classList.add('hidden')
+    body.classList.remove('no-scroll')
+}
+
+//Abrir ventana checkout
+botonAbrirCheckout.onclick = () => {
+    ventanaCheckout.classList.remove('hidden')
+}
+
+//Cerrar ventana chekout
+botonSeguirComprando.onclick = () => {
+    ventanaCheckout.classList.add('hidden')
 }

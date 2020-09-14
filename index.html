@@ -25,9 +25,9 @@
             </div>
         </nav>
         <div class="header-banner">
-            <h1>ELECTRÓNICA
+            <h1>ELECTRÓNICA</h1>
+            <img alt="productos de electrónica" src="../TP2/Imagenes/banner_liviano.jpg">
         </div>
-        </h1>
     </header>
     <!--termina header, comienza main-->
     <main>
@@ -47,6 +47,7 @@
                     <h3>BÚSQUEDA</h3>
                     <label for="barra-busqueda">
                         <input name="buscar-productos" id="barra-busqueda" placeholder="Buscar productos" />
+                        <i class="fas fa-search"></i>
                     </label>
                 </div>
                 <div class="filtros-contenedor">
@@ -225,104 +226,108 @@
         </div>
     </footer>
     <!--termina footer, comienza secci'on carrito-->
-    <section class="carrito-seccion">
-        <div class="carrito-titulo-contenedor">
-            <h2>Carrito</h2>
-            <button><i class="fas fa-times"></i></button>
-        </div>
-        <p class="mensaje-carrito-vacio">No tienes productos en el carrito, ¡agrega algunos!</p>
-        <p class="mensaje-carrito-lleno">1 producto/s agregado/s</p>
-        <div class="carrito-productos-agregados">
-            <article class="carrito-producto-tarjeta">
-                <img class="carrito-producto-imagen">
-                <div class="carrito-producto-detalles">
-                    <h3 class="carrito-producto-nombre">Nombre Producto</h3>
-                    <button class="boton-eliminar-producto">
-                        <i class="far fa-trash-alt"></i>
-                    </button>
-                </div>
-                <div class="carrito-producto-precio-contenedor">
-                    <label for="carrito-producto-cantidad">
-                        <input id="carrito-producto-cantidad" type="number" value="1" />
-                        unidades
-                    </label>
-                    <p class="carrito-producto-precio"></p>
-                </div>
-            </article>
-        </div>
-        <p>Subtotal <span class="subtotal"></span></p>
-        <button class="boton-comprar carrito">COMPRAR</button>
-        <button class="boton-vaciar">VACIAR</button>
-    </section>
+    <div class="overlay carrito hidden">
+        <section class="carrito-seccion">
+            <div class="carrito-titulo-contenedor">
+                <h2>Carrito</h2>
+                <button class="carrito-cerrar-boton"><i class="fas fa-times"></i></button>
+            </div>
+            <p class="mensaje-carrito-vacio">No tienes productos en el carrito, ¡agrega algunos!</p>
+            <p class="mensaje-carrito-lleno">1 producto/s agregado/s</p>
+            <div class="carrito-productos-agregados">
+                <article class="carrito-producto-tarjeta">
+                    <img class="carrito-producto-imagen">
+                    <div class="carrito-producto-detalles">
+                        <h3 class="carrito-producto-nombre">Nombre Producto</h3>
+                        <button class="boton-eliminar-producto">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div class="carrito-producto-precio-contenedor">
+                        <label for="carrito-producto-cantidad">
+                            <input id="carrito-producto-cantidad" type="number" value="1" />
+                            unidades
+                        </label>
+                        <p class="carrito-producto-precio"></p>
+                    </div>
+                </article>
+            </div>
+            <p>Subtotal <span class="subtotal"></span></p>
+            <button class="boton-comprar carrito">COMPRAR</button>
+            <button class="boton-vaciar">VACIAR</button>
+        </section>
+    </div>
 
-    <section class="checkout-seccion">
-        <div class="checkout-formulario">
-            <div class="formulario-datos-personales">
-                <h3>Datos Personales</h3>
-                <form>
-                    <label for="nombre-apellido">
-                        Nombre y Apellido*
-                        <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace" required />
-                    </label>
-                    <label for="email">
-                        Email*
-                        <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" required />
-                    </label>
-                </form>
+    <div class="overlay checkout hidden">
+        <section class="checkout-seccion">
+            <div class="checkout-formulario">
+                <div class="formulario-datos-personales">
+                    <h3>Datos Personales</h3>
+                    <form>
+                        <label for="nombre-apellido">
+                            Nombre y Apellido*
+                            <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace" required />
+                        </label>
+                        <label for="email">
+                            Email*
+                            <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" required />
+                        </label>
+                    </form>
+                </div>
+                <div class="formulario-opciones-pago">
+                    <h3>Opciones de Pago</h3>
+                    <form>
+                        <label for="opciones-pago-efectivo">
+                            <input id="opciones-pago-efectivo" type="radio" name="opciones-pago"
+                                value="Efectivo / Débito" />
+                            Efectivo / Débito
+                        </label>
+                        <label for="opciones-pago-credito">
+                            <input id="opciones-pago-credito" type="radio" name="opciones-pago"
+                                value="Tarjeta de crédito" />
+                            Tarjeta de crédito
+                        </label>
+                        <label for="envio">
+                            <input id="envio" type="checkbox" name="envio" />
+                            Necesito envío
+                        </label>
+                        <label for="descuento">
+                            <input type="checkbox" name="descuento" id="descuento" />
+                            Tengo tarjeta de descuento
+                        </label>
+                    </form>
+                </div>
             </div>
-            <div class="formulario-opciones-pago">
-                <h3>Opciones de Pago</h3>
-                <form>
-                    <label for="opciones-pago-efectivo">
-                        <input id="opciones-pago-efectivo" type="radio" name="opciones-pago"
-                            value="Efectivo / Débito" />
-                        Efectivo / Débito
-                    </label>
-                    <label for="opciones-pago-credito">
-                        <input id="opciones-pago-credito" type="radio" name="opciones-pago"
-                            value="Tarjeta de crédito" />
-                        Tarjeta de crédito
-                    </label>
-                    <label for="envio">
-                        <input id="envio" type="checkbox" name="envio" />
-                        Necesito envío
-                    </label>
-                    <label for="descuento">
-                        <input type="checkbox" name="descuento" id="descuento" />
-                        Tengo tarjeta de descuento
-                    </label>
-                </form>
+            <div class="checkout-resumen">
+                <h3>Resumen</h3>
+                <div>
+                    <p class="carrito-subtotal">
+                        Subtotal
+                        <span class="carrito-subtotal-valor"></span>
+                    </p>
+                    <p class="carrito-descuento">
+                        Descuento 10%
+                        <span class="carrito-descuento-valor"></span>
+                    </p>
+                    <p class="carrito-envio">
+                        Envío
+                        <span class="carrito-envio-valor"></span>
+                    </p>
+                    <p class="carrito-recargo">
+                        Recargo
+                        <span class="carrito-recargo-valor"></span>
+                    </p>
+                    <p class="carrito-total">
+                        <span class="carrito-total-valor"></span>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="checkout-resumen">
-            <h3>Resumen</h3>
             <div>
-                <p class="carrito-subtotal">
-                    Subtotal
-                    <span class="carrito-subtotal-valor"></span>
-                </p>
-                <p class="carrito-descuento">
-                    Descuento 10%
-                    <span class="carrito-descuento-valor"></span>
-                </p>
-                <p class="carrito-envio">
-                    Envío
-                    <span class="carrito-envio-valor"></span>
-                </p>
-                <p class="carrito-recargo">
-                    Recargo
-                    <span class="carrito-recargo-valor"></span>
-                </p>
-                <p class="carrito-total">
-                    <span class="carrito-total-valor"></span>
-                </p>
+                <button class="boton-finalizar">FINALIZAR</button>
+                <button class="boton-seguir-comprando">SEGUIR COMPRANDO</button>
             </div>
-        </div>
-        <div>
-            <button class="boton-finalizar">FINALIZAR</button>
-            <button class="boton-seguir-comprando">SEGUIR COMPRANDO</button>
-        </div>
-    </section>
+        </section>
+    </div>
 
 
     <script src="index.js"></script>
