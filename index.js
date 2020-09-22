@@ -5,7 +5,8 @@ const filtroRating = document.getElementsByClassName('filtro-review')
 const botonLimpiar = document.querySelector('.filtros-boton')
 const botonCerrarCarrito = document.querySelector('.carrito-cerrar-boton')
 const botonAbrirCarrito = document.querySelector('.boton-carrito')
-const ventanaCarrito = document.querySelector('.overlay.carrito')
+const overlayCarrito = document.querySelector('.overlay.carrito')
+const ventanaCarrito = document.querySelector('.carrito-seccion')
 const body = document.body
 const botonAbrirCheckout = document.querySelector('.boton-comprar.carrito')
 const ventanaCheckout = document.querySelector('.overlay.checkout')
@@ -41,10 +42,10 @@ const checkboxSeleccionado = () => {
     }
 }
 
-const coincidenCheckboxYTajeta = tarjeta => {
+const coincidenCheckboxYTajeta = (tarjeta) => {
     const rating = tarjeta.dataset.review
     for (let checkbox of filtroRating) {
-        if (checkbox.value === rating && checkbox.checked) {
+        if (checkbox.checked && checkbox.value === rating) {
             return true
         }
     }
@@ -81,10 +82,10 @@ const checkboxCategoriaSeleccionado = () => {
     }
 }
 
-const coincidenCheckboxCategoriaYTajeta = tarjeta => {
+const coincidenCheckboxCategoriaYTajeta = (tarjeta) => {
     const categoria = tarjeta.dataset.categoria
     for (let checkbox of filtroCategoria) {
-        if (checkbox.value === categoria && checkbox.checked) {
+        if (checkbox.checked && checkbox.value === categoria) {
             return true
         }
     }
@@ -121,13 +122,15 @@ botonLimpiar.onclick = () => {
 
 //Abrir ventana del carrito
 botonAbrirCarrito.onclick = () => {
-    ventanaCarrito.classList.remove('hidden')
+    overlayCarrito.classList.remove('hidden')
+    ventanaCarrito.classList.add('abierto')
     body.classList.add('no-scroll')
 }
 
 //Cerrar ventana del carrito
 botonCerrarCarrito.onclick = () => {
-    ventanaCarrito.classList.add('hidden')
+    overlayCarrito.classList.add('hidden')
+    ventanaCarrito.classList.remove('abierto')
     body.classList.remove('no-scroll')
 }
 
