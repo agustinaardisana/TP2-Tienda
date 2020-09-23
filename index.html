@@ -333,8 +333,8 @@
                     </div>
                 </article>
 
-                <article class="producto-tarjeta" data-nombre="macbook" data-categoria="notebooks"
-                    data-precio="119999" data-review="4">
+                <article class="producto-tarjeta" data-nombre="macbook" data-categoria="notebooks" data-precio="119999"
+                    data-review="4">
                     <div class="producto-imagen-contenedor">
                         <img class="producto-imagen" src="../TP2/Imagenes/macbook.png">
                     </div>
@@ -356,8 +356,8 @@
                     </div>
                 </article>
 
-                <article class="producto-tarjeta" data-nombre="iphone" data-categoria="celulares"
-                    data-precio="79999" data-review="3">
+                <article class="producto-tarjeta" data-nombre="iphone" data-categoria="celulares" data-precio="79999"
+                    data-review="3">
                     <div class="producto-imagen-contenedor">
                         <img class="producto-imagen" src="../TP2/Imagenes/iphone.jpeg">
                     </div>
@@ -379,8 +379,8 @@
                     </div>
                 </article>
 
-                <article class="producto-tarjeta" data-nombre="xbox one" data-categoria="consolas"
-                    data-precio="69999" data-review="4">
+                <article class="producto-tarjeta" data-nombre="xbox one" data-categoria="consolas" data-precio="69999"
+                    data-review="4">
                     <div class="producto-imagen-contenedor">
                         <img class="producto-imagen" src="../TP2/Imagenes/xbox.jpg">
                     </div>
@@ -480,69 +480,73 @@
 
     <div class="overlay checkout hidden">
         <section class="checkout-seccion">
-            <div class="checkout-formulario">
-                <div class="formulario-datos-personales">
-                    <h3>Datos Personales</h3>
-                    <form>
-                        <label for="nombre-apellido">
-                            Nombre y Apellido*
-                            <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace" required />
-                        </label>
-                        <label for="email">
-                            Email*
-                            <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" required />
-                        </label>
-                    </form>
+            <h2>Checkout</h2>
+            <div class="checkout-formulario-contenedor">
+                <div class="checkout-formulario">
+                    <div class="formulario-datos-personales">
+                        <h3>Datos Personales</h3>
+                        <form class="datos-personales">
+                            <label for="nombre-apellido">
+                                Nombre y Apellido*
+                                <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace" required />
+                            </label>
+                            <label for="email">
+                                Email*
+                                <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" required />
+                            </label>
+                        </form>
+                    </div>
+
+                    <div class="formulario-opciones-pago">
+                        <h3>Opciones de Pago</h3>
+                        <form class="opciones-pago">
+                            <label for="opciones-pago-efectivo">
+                                <input id="opciones-pago-efectivo" type="radio" name="opciones-pago"
+                                    value="Efectivo / Débito" />
+                                Efectivo / Débito
+                            </label>
+                            <label for="opciones-pago-credito">
+                                <input id="opciones-pago-credito" type="radio" name="opciones-pago"
+                                    value="Tarjeta de crédito" />
+                                Tarjeta de crédito
+                            </label>
+                            <label for="envio">
+                                <input id="envio" type="checkbox" name="envio" />
+                                Necesito envío
+                            </label>
+                            <label for="descuento">
+                                <input type="checkbox" name="descuento" id="descuento" />
+                                Tengo tarjeta de descuento
+                            </label>
+                        </form>
+                    </div>
                 </div>
-                <div class="formulario-opciones-pago">
-                    <h3>Opciones de Pago</h3>
-                    <form>
-                        <label for="opciones-pago-efectivo">
-                            <input id="opciones-pago-efectivo" type="radio" name="opciones-pago"
-                                value="Efectivo / Débito" />
-                            Efectivo / Débito
-                        </label>
-                        <label for="opciones-pago-credito">
-                            <input id="opciones-pago-credito" type="radio" name="opciones-pago"
-                                value="Tarjeta de crédito" />
-                            Tarjeta de crédito
-                        </label>
-                        <label for="envio">
-                            <input id="envio" type="checkbox" name="envio" />
-                            Necesito envío
-                        </label>
-                        <label for="descuento">
-                            <input type="checkbox" name="descuento" id="descuento" />
-                            Tengo tarjeta de descuento
-                        </label>
-                    </form>
+                <div class="checkout-resumen">
+                    <h3>Resumen</h3>
+                    <div>
+                        <p class="carrito-subtotal">
+                            Subtotal
+                            <span class="carrito-subtotal-valor"></span>
+                        </p>
+                        <p class="carrito-descuento">
+                            Descuento 10%
+                            <span class="carrito-descuento-valor"></span>
+                        </p>
+                        <p class="carrito-envio">
+                            Envío
+                            <span class="carrito-envio-valor"></span>
+                        </p>
+                        <p class="carrito-recargo">
+                            Recargo
+                            <span class="carrito-recargo-valor">$ 50</span>
+                        </p>
+                        <p class="carrito-total">
+                            <span class="carrito-total-valor"></span>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="checkout-resumen">
-                <h3>Resumen</h3>
-                <div>
-                    <p class="carrito-subtotal">
-                        Subtotal
-                        <span class="carrito-subtotal-valor"></span>
-                    </p>
-                    <p class="carrito-descuento">
-                        Descuento 10%
-                        <span class="carrito-descuento-valor"></span>
-                    </p>
-                    <p class="carrito-envio">
-                        Envío
-                        <span class="carrito-envio-valor"></span>
-                    </p>
-                    <p class="carrito-recargo">
-                        Recargo
-                        <span class="carrito-recargo-valor"></span>
-                    </p>
-                    <p class="carrito-total">
-                        <span class="carrito-total-valor"></span>
-                    </p>
-                </div>
-            </div>
-            <div>
+            <div class="checkout-botones-acciones">
                 <button class="boton-seguir-comprando">SEGUIR COMPRANDO</button>
                 <button class="boton-finalizar">FINALIZAR</button>
             </div>

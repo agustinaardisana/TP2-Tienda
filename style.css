@@ -22,7 +22,7 @@ button {
     cursor: pointer;
 }
 
-label {
+label:not(.datos-personales label, .opciones-pago label) {
     display: flex;
 }
 
@@ -45,6 +45,16 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#barra-busqueda, #nombre-apellido, #email {
+    background-color: transparent;
+    line-height: 40px;
+    border: 0;
+    border-bottom: 2px solid black;
+    height: 40px;
+    width: 400px;
+    padding: 0 20px;
 }
 
 /*comienza header*/
@@ -113,16 +123,6 @@ aside {
     font-weight: 600;
 }
 
-#barra-busqueda {
-    background-color: transparent;
-    line-height: 40px;
-    border: 0;
-    border-bottom: 2px solid black;
-    height: 40px;
-    width: 400px;
-    padding: 0 20px;
-}
-
 .fas.fa-search {
     position: relative;
     right: 25px;
@@ -135,7 +135,7 @@ aside {
 }
 
 /*termina aside, comienza seccion menu productos*/
-section {
+section:not(.checkout-seccion) {
     display: flex;
     flex-direction: column;
 }
@@ -230,6 +230,11 @@ section {
 
 .producto-comprar {
     padding: 20px;
+    width: 100%;
+}
+
+.boton-comprar {
+    width: 100%;
 }
 
 .boton-comprar, .boton-vaciar, .boton-seguir-comprando {
@@ -314,18 +319,72 @@ footer {
     z-index: 1;
 }
 .checkout-seccion {
-    background-color: #f5f5f5;
+    background-color: #fff;
     height: 100%;
+    max-width: 800px;
     padding: 40px 30px;
     position: fixed;
-    max-width: 500px;
-    right: 500px;
+    right: 300px;
     top: 0;
     z-index: 2;
 }
 
 .checkout-seccion > div {
     display: flex;
+}
+
+.checkout-formulario-contenedor > div {
+    padding: 20px 20px 40px;
+}
+
+.formulario-datos-personales {
+    margin-bottom: 20px;
+}
+
+.datos-personales {
+    margin-top: 20px;
+}
+
+.datos-personales > label > input {
+    margin-bottom: 20px;
+}
+
+.formulario-opciones-pago {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.opciones-pago {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.opciones-pago > label {
+    margin-bottom: 10px;
+}
+
+.checkout-resumen {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    background-color: #f5f5f5;
+}
+
+.checkout-resumen p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-botones-acciones {
+    justify-content: flex-end;
+    padding: 10px;
+    margin-top: 60px;
+}
+
+.checkout-botones-acciones button {
+    margin-left: 20px;
+    width: 200px;
 }
 
 /*Clases especiales*/
