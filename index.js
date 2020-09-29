@@ -3,14 +3,19 @@ const filtroNombre = document.querySelector('#barra-busqueda')
 const tarjetasProducto = document.getElementsByClassName('producto-tarjeta')
 const filtroRating = document.getElementsByClassName('filtro-review')
 const botonLimpiar = document.querySelector('.filtros-boton')
-const botonCerrarCarrito = document.querySelector('.carrito-cerrar-boton')
+const botonesCerrar = document.querySelectorAll('.boton-cerrar')
 const botonAbrirCarrito = document.querySelector('.boton-carrito')
-const overlayCarrito = document.querySelector('.overlay.carrito')
+//const overlayCarrito = document.querySelector('.overlay.carrito')
 const ventanaCarrito = document.querySelector('.carrito-seccion')
 const body = document.body
 const botonAbrirCheckout = document.querySelector('.boton-comprar.carrito')
 const ventanaCheckout = document.querySelector('.overlay.checkout')
 const botonSeguirComprando = document.querySelector('.boton-seguir-comprando')
+const botonFiltrosResponsive = document.querySelector('.boton-filtros-responsive')
+//const overlayAsideFiltrosResponsive = document.querySelector('.overlay.aside-filtros')
+const asideFiltrosResponsive = document.querySelector('#filtros')
+const overlay = document.querySelector('.overlay')
+
 
 //Filtro por búsqueda del usuario
 filtroNombre.oninput = () => {
@@ -122,16 +127,26 @@ botonLimpiar.onclick = () => {
 
 //Abrir ventana del carrito
 botonAbrirCarrito.onclick = () => {
-    overlayCarrito.classList.remove('hidden')
+    overlay.classList.remove('hidden')
     ventanaCarrito.classList.add('abierto')
     body.classList.add('no-scroll')
 }
 
-//Cerrar ventana del carrito
-botonCerrarCarrito.onclick = () => {
-    overlayCarrito.classList.add('hidden')
-    ventanaCarrito.classList.remove('abierto')
-    body.classList.remove('no-scroll')
+//Cerrar ventana del carrito y del aside filtros
+for (let botonCerrar of botonesCerrar) {
+    botonCerrar.onclick = () => {
+        overlay.classList.add('hidden')
+        ventanaCarrito.classList.remove('abierto')
+        asideFiltrosResponsive.classList.remove('abierto')
+        body.classList.remove('no-scroll')
+    }
+}
+
+//Abrir aside filtros responsive
+botonFiltrosResponsive.onclick = () => {
+    overlay.classList.remove('hidden')
+    asideFiltrosResponsive.classList.add('abierto')
+    body.classList.add('no-scroll')
 }
 
 //Abrir ventana checkout

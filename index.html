@@ -32,7 +32,12 @@
     <!--termina header, comienza main-->
     <main>
         <!--comienza aside(filtros)-->
-        <aside>
+        <div class="overlay aside-filtros hidden"></div>
+
+        <aside id="filtros">
+            <div>
+                <button class="aside-filtros boton-cerrar"><i class="fas fa-times"></i></button>
+            </div>
             <div class="filtros-contenedor">
                 <div class="filtros-titulo-contenedor">
                     <h2>FILTROS</h2>
@@ -45,7 +50,7 @@
             <form>
                 <div class="filtros-contenedor">
                     <h3>BÚSQUEDA</h3>
-                    <label for="barra-busqueda">
+                    <label for="barra-busqueda" class="barra-busqueda">
                         <input name="buscar-productos" id="barra-busqueda" placeholder="Buscar productos" />
                         <i class="fas fa-search"></i>
                     </label>
@@ -137,7 +142,7 @@
         <section class="productos-seccion">
             <div class="productos-menu">
                 <p class="productos-cantidad">Mostrando <span>0</span> producto(s) de <span>12</span></p>
-                <div class="productos-botones-contenedor">
+                <div class="productos-vista-contenedor">
                     Ver como
                     <button class="boton-vista tabla">
                         <i class="fas fa-th"></i>
@@ -145,6 +150,10 @@
                     <button class="boton-vista lista">
                         <i class="fas fa-list"></i>
                     </button>
+                </div>
+                <div class="boton-filtros-responsive">
+                    <i class="fas fa-filter"></i>
+                    Filtros
                 </div>
             </div>
             <!--termina menu productos, comienza seccion tabla productos-->
@@ -440,7 +449,7 @@
     <section class="carrito-seccion">
         <div class="carrito-titulo-contenedor">
             <h2>Carrito</h2>
-            <button class="carrito-cerrar-boton"><i class="fas fa-times"></i></button>
+            <button class="carrito boton-cerrar"><i class="fas fa-times"></i></button>
         </div>
 
         <div class="contenedor-mensaje-carrito-vacio">
@@ -486,11 +495,11 @@
                     <div class="formulario-datos-personales">
                         <h3>Datos Personales</h3>
                         <form class="datos-personales">
-                            <label for="nombre-apellido">
+                            <label for="nombre-apellido" class="not-flex">
                                 Nombre y Apellido*
                                 <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace" required />
                             </label>
-                            <label for="email">
+                            <label for="email" class="not-flex">
                                 Email*
                                 <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" required />
                             </label>
@@ -500,21 +509,21 @@
                     <div class="formulario-opciones-pago">
                         <h3>Opciones de Pago</h3>
                         <form class="opciones-pago">
-                            <label for="opciones-pago-efectivo">
+                            <label for="opciones-pago-efectivo" class="not-flex">
                                 <input id="opciones-pago-efectivo" type="radio" name="opciones-pago"
                                     value="Efectivo / Débito" />
                                 Efectivo / Débito
                             </label>
-                            <label for="opciones-pago-credito">
+                            <label for="opciones-pago-credito" class="not-flex">
                                 <input id="opciones-pago-credito" type="radio" name="opciones-pago"
                                     value="Tarjeta de crédito" />
                                 Tarjeta de crédito
                             </label>
-                            <label for="envio">
+                            <label for="envio" class="not-flex">
                                 <input id="envio" type="checkbox" name="envio" />
                                 Necesito envío
                             </label>
-                            <label for="descuento">
+                            <label for="descuento" class="not-flex">
                                 <input type="checkbox" name="descuento" id="descuento" />
                                 Tengo tarjeta de descuento
                             </label>

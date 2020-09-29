@@ -22,7 +22,7 @@ button {
     cursor: pointer;
 }
 
-label:not(.datos-personales label, .opciones-pago label) {
+label:not(.not-flex) {
     display: flex;
 }
 
@@ -41,7 +41,7 @@ h3 {
 }
 
 /*Agrupo elementos de distintas secciones que comparten estilos*/
-.productos-menu, .filtros-titulo-contenedor, .carrito-titulo-contenedor, .productos-botones-contenedor {
+.productos-menu, .filtros-titulo-contenedor, .carrito-titulo-contenedor, .productos-vista-contenedor {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,9 +118,21 @@ main {
 aside {
     display: flex;
     flex-direction: column;
-    max-width: 20%;
+    max-width: 270px;
     font-size: 12px;
     font-weight: 600;
+}
+
+.aside-filtros.boton-cerrar {
+    display: none;
+}
+
+.boton-filtros-responsive {
+    display: none;
+}
+
+.fas.fa-trash-alt {
+    margin-right: 5px;
 }
 
 .fas.fa-search {
@@ -140,12 +152,16 @@ section:not(.checkout-seccion) {
     flex-direction: column;
 }
 
-.productos-seccion {
-    width: 80%;
-}
-
 .filtros-contenedor {
     padding: 0 35px 15px;
+}
+
+.filtros-contenedor label:not(.barra-busqueda) {
+    align-items: center;
+}
+
+.filtros-contenedor label input {
+    margin: 3px 10px 3px 3px
 }
 
 .filtros-titulo-contenedor {
@@ -275,7 +291,7 @@ footer {
     width: 100%;
 }
 
-.carrito-cerrar-boton {
+.boton-cerrar {
     font-size: 20px;
     margin-top: 0;
 }
@@ -398,4 +414,49 @@ footer {
 
 .abierto {
     transform: translateX(0%);
+}
+
+/*Comienzan estilos responsive*/
+@media (max-width:850px) {
+    .productos-vista-contenedor {
+        display: none;
+    }
+
+    .boton-filtros-responsive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .aside-filtros.boton-cerrar {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        width: 100%;
+        background-color: #f5f5f5;
+    }
+
+    aside {
+    background-color: #f5f5f5;
+    height: 100vh;
+    position: fixed;
+    transform: translateX(100%);
+    right: 0;
+    top: 0;
+    z-index: 1;
+    transition: 0.3s;
+    }
+
+    .checkout-seccion {
+        display: flex;
+        flex-direction: column;
+        right: 0;
+        max-width: 500px;
+        position: absolute;
+        overflow-y: scroll;
+    }
+
+    .checkout-formulario-contenedor {
+        flex-direction: column;
+    }
 }
