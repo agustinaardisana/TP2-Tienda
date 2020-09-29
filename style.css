@@ -53,7 +53,8 @@ h3 {
     border: 0;
     border-bottom: 2px solid black;
     height: 40px;
-    width: 400px;
+    width: 100%;
+    max-width: 300px;
     padding: 0 20px;
 }
 
@@ -325,6 +326,10 @@ footer {
     align-items: center;
 }
 
+.contenedor-carrito-lleno {
+    overflow-y: scroll;
+}
+
 .carrito-producto-tarjeta > div {
     display: flex;
     justify-content: space-between;
@@ -337,6 +342,7 @@ footer {
 .checkout-seccion {
     background-color: #fff;
     height: 100%;
+    width: 100%;
     max-width: 800px;
     padding: 40px 30px;
     position: fixed;
@@ -347,6 +353,7 @@ footer {
 
 .checkout-seccion > div {
     display: flex;
+    justify-content: space-between;
 }
 
 .checkout-formulario-contenedor > div {
@@ -359,6 +366,10 @@ footer {
 
 .datos-personales {
     margin-top: 20px;
+}
+
+.datos-personales >label {
+    flex-direction: column;
 }
 
 .datos-personales > label > input {
@@ -428,6 +439,10 @@ footer {
     align-items: center;
     }
 
+    .fas.fa-filter {
+        margin-right: 10px;
+    }
+
     .aside-filtros.boton-cerrar {
         display: flex;
         justify-content: flex-end;
@@ -458,5 +473,23 @@ footer {
 
     .checkout-formulario-contenedor {
         flex-direction: column;
+    }
+
+}
+
+@media (max-width:650px) {
+    .checkout-seccion, .carrito-seccion {
+        min-width: 100%;
+    }
+
+    .producto-tarjeta {
+        max-width: 100%;
+    }
+    
+}
+
+@media (max-width:350px) {
+    .checkout-seccion {
+        position: relative;
     }
 }
