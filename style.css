@@ -346,12 +346,13 @@ footer {
     max-width: 800px;
     padding: 40px 30px;
     position: fixed;
-    right: 300px;
-    top: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
 }
 
-.checkout-seccion > div {
+.checkout-formulario-contenedor {
     display: flex;
     justify-content: space-between;
 }
@@ -404,6 +405,7 @@ footer {
 }
 
 .checkout-botones-acciones {
+    display: flex;
     justify-content: flex-end;
     padding: 10px;
     margin-top: 60px;
@@ -475,6 +477,14 @@ footer {
         flex-direction: column;
     }
 
+}
+
+@media (max-width:850px) and (min-width:651px) {
+    .checkout-seccion {
+    transform: none;
+    top: revert;
+    left: revert;
+    }
 }
 
 @media (max-width:650px) {
