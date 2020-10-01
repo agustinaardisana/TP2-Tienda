@@ -1,5 +1,5 @@
 //Comienza aside (filtros)
-const filtroNombre = document.querySelector('#barra-busqueda')
+const barraBusqueda = document.querySelector('#barra-busqueda')
 const tarjetasProducto = document.getElementsByClassName('producto-tarjeta')
 const filtroRating = document.getElementsByClassName('filtro-review')
 const botonLimpiar = document.querySelector('.filtros-boton')
@@ -15,31 +15,103 @@ const botonFiltrosResponsive = document.querySelector('.boton-filtros-responsive
 //const overlayAsideFiltrosResponsive = document.querySelector('.overlay.aside-filtros')
 const asideFiltrosResponsive = document.querySelector('#filtros')
 const overlay = document.querySelector('.overlay')
+const filtroCategoria = document.getElementsByClassName('filtro-categoria')
 
 
-//Filtro por búsqueda del usuario
-filtroNombre.oninput = () => {
-    for (let tarjeta of tarjetasProducto) {
-        const titulo = tarjeta.dataset.nombre
-        const busqueda = filtroNombre.value
+///////////////// COMIENZA SECCION FILTROS /////////////////////
 
-        if (titulo.includes(busqueda)) {
-            tarjeta.classList.remove('hidden')
-        }
-        else {
-            tarjeta.classList.add('hidden')
-        }
-    }
+//Escuchar los eventos que suceden en el aside-filtros
+barraBusqueda.oninput = () => {
+    filtrarTarjetas()
 }
 
-//Filtros por checkbox - Rating
 for (let checkbox of filtroRating) {
     checkbox.onclick = () => {
-        filtrarPorRating()
+        filtrarTarjetas()
     }
 }
 
-const checkboxSeleccionado = () => {
+for (let checkbox of filtroCategoria) {
+    checkbox.onclick = () => {
+        filtrarTarjetas()
+    }
+}
+
+//Filtrar Tarjetas
+const filtrarTarjetas = () => {
+    for (let tarjeta of tarjetasProducto) {
+        if (pasaFiltros(tarjeta)) {
+            mostrarTarjeta(tarjeta)
+        }
+        else {
+            ocultarTarjeta(tarjeta)
+        }
+    }
+}
+
+const ocultarTarjeta = (tarjeta) => {
+    return tarjeta.classList.add("hidden")
+  }
+  
+  const mostrarTarjeta = (tarjeta) => {
+    return tarjeta.classList.remove("hidden")
+  }
+
+//Ver si la tarjeta cumple con todos los requisitos para pasar los filtros
+const pasaFiltros = (tarjeta) => {
+    if (pasaFiltroInput(tarjeta) && pasaFiltroPorCategoria(tarjeta) && pasaFiltroPorRating(tarjeta)) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+//Ver si la tarjeta pasa el filtro por input
+const pasaFiltroInput = (tarjeta) => {
+    if (barraBusquedaTieneInput()) {
+        if (inputCoincideConNombreTarjeta(tarjeta)) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    else {
+        return true
+    }
+}
+
+//Ver si hay algo escrito en el input
+const barraBusquedaTieneInput = () => {
+    return Boolean(barraBusqueda.value)
+}
+
+//Ver si lo escrito en el input coincide con el data-nombre de la tarjeta
+const inputCoincideConNombreTarjeta = (tarjeta) => {
+    if (tarjeta.dataset.nombre.includes(barraBusqueda.value.toLowerCase())) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+//Ver si la tarjeta pasa el filtro por Rating
+const pasaFiltroPorRating = (tarjeta) => {
+    if (checkboxRatingSeleccionado()) {
+        if (coincidenCheckboxRatingYTarjeta(tarjeta)) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    return true
+}
+
+//Ver si hay algun checkbox-rating seleccionado
+const checkboxRatingSeleccionado = () => {
     for (let checkbox of filtroRating) {
         if (checkbox.checked) {
             return true
@@ -47,38 +119,33 @@ const checkboxSeleccionado = () => {
     }
 }
 
-const coincidenCheckboxYTajeta = (tarjeta) => {
+//Ver si el checkbox-rating seleccionado coincide con alguna tarjeta
+const coincidenCheckboxRatingYTarjeta = (tarjeta) => {
     const rating = tarjeta.dataset.review
     for (let checkbox of filtroRating) {
-        if (checkbox.checked && checkbox.value === rating) {
-            return true
-        }
-    }
-}
-
-const filtrarPorRating = () => {
-    for (let tarjeta of tarjetasProducto) {
-        tarjeta.classList.add('hidden')
-        if (checkboxSeleccionado()) {
-            if (coincidenCheckboxYTajeta(tarjeta)) {
-                tarjeta.classList.remove('hidden')
+        if (checkbox.checked) {
+            if (checkbox.value === rating) {
+                return true
             }
         }
+    }
+    return false
+}
+
+//Ver si la tarjeta pasa el filtro por Categoria
+const pasaFiltroPorCategoria = (tarjeta) => {
+    if (checkboxCategoriaSeleccionado()) {
+        if (coincidenCheckboxCategoriaYTarjeta(tarjeta)) {
+            return true
+        }
         else {
-            tarjeta.classList.remove('hidden')
+            return false
         }
     }
+    return true
 }
 
-//Filtros por checkbox - Categoria
-const filtroCategoria = document.getElementsByClassName('filtro-categoria')
-
-for (let checkbox of filtroCategoria) {
-    checkbox.onclick = () => {
-        filtrarPorCategoria()
-    }
-}
-
+//Ver si hay algun checkbox-categoria seleccionado
 const checkboxCategoriaSeleccionado = () => {
     for (let checkbox of filtroCategoria) {
         if (checkbox.checked) {
@@ -87,20 +154,27 @@ const checkboxCategoriaSeleccionado = () => {
     }
 }
 
-const coincidenCheckboxCategoriaYTajeta = (tarjeta) => {
+//Ver si el checkbox-categoria seleccionado coincide con alguna tarjeta
+const coincidenCheckboxCategoriaYTarjeta = (tarjeta) => {
     const categoria = tarjeta.dataset.categoria
     for (let checkbox of filtroCategoria) {
-        if (checkbox.checked && checkbox.value === categoria) {
-            return true
+        if (checkbox.checked) {
+            if (checkbox.value === categoria) {
+                return true
+            }
         }
     }
+    return false
 }
 
-filtrarPorCategoria = () => {
+
+//Filtros por checkbox - Rating
+
+const filtrarPorRating = () => {
     for (let tarjeta of tarjetasProducto) {
         tarjeta.classList.add('hidden')
-        if (checkboxCategoriaSeleccionado()) {
-            if (coincidenCheckboxCategoriaYTajeta(tarjeta)) {
+        if (checkboxSeleccionado()) {
+            if (coincidenCheckboxYTarjeta(tarjeta)) {
                 tarjeta.classList.remove('hidden')
             }
         }
@@ -110,10 +184,9 @@ filtrarPorCategoria = () => {
     }
 }
 
-
 //Borrar filtros
 botonLimpiar.onclick = () => {
-    filtroNombre.value = ""
+    barraBusqueda.value = ""
     for (let checkbox of filtroRating) {
         checkbox.checked = false
     }
@@ -124,6 +197,8 @@ botonLimpiar.onclick = () => {
         tarjeta.classList.remove('hidden')
     }
 }
+
+///////////////// TERMINA SECCION FILTROS - COMIENZAN TRANSFORMACIONES /////////////////////
 
 //Abrir ventana del carrito
 botonAbrirCarrito.onclick = () => {
