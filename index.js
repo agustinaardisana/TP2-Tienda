@@ -7,6 +7,7 @@ const botonesCerrar = document.querySelectorAll('.boton-cerrar')
 const botonAbrirCarrito = document.querySelector('.boton-carrito')
 const numeroProductosMostrados = document.querySelector('.productos-mostrados-cantidad')
 const numeroProductosTotales = document.querySelector('.productos-totales-cantidad')
+const tarjetasOcultas = document.getElementsByClassName('producto-tarjeta hidden')
 
 //Variables Transformaciones
 const ventanaCarrito = document.querySelector('.carrito-seccion')
@@ -38,7 +39,7 @@ const parrafoEnvio = document.querySelector('.checkout-resumen.envio-parrafo')
 const contenedorTarjetas = document.querySelector('.productos-tarjetas-contenedor')
 const botonVistaLista = document.querySelector('.boton-vista.lista')
 const botonVistaTabla = document.querySelector('.boton-vista.tabla')
-const detallesProductos =  document.querySelectorAll('.producto-detalles-parrafo')
+const detallesProductos = document.querySelectorAll('.producto-detalles-parrafo')
 
 
 ///////////////// COMIENZA SECCION FILTROS Y BUSQUEDA /////////////////////
@@ -46,41 +47,43 @@ const detallesProductos =  document.querySelectorAll('.producto-detalles-parrafo
 //Escuchar los eventos que suceden en el aside-filtros
 barraBusqueda.oninput = () => {
     filtrarTarjetas()
+    contarProductosMostrados()
 }
 
 for (let checkbox of filtroRating) {
     checkbox.onclick = () => {
         filtrarTarjetas()
+        contarProductosMostrados()
     }
 }
 
 for (let checkbox of filtroCategoria) {
     checkbox.onclick = () => {
         filtrarTarjetas()
+        contarProductosMostrados()
     }
 }
 
-//Filtrar Tarjetas
+//Contar los productos que se estan mostrando en cada momento
+const contarProductosMostrados = (productosMostrados) => {
+    productosMostrados = tarjetasProducto.length - tarjetasOcultas.length
+    numeroProductosMostrados.textContent = productosMostrados
+    numeroProductosTotales.textContent = tarjetasProducto.length
+}
 
+
+//Filtrar Tarjetas
 const filtrarTarjetas = () => {
-    let tarjetasMostradas = document.querySelectorAll(".producto-tarjeta:not(.hidden)")
 
     for (let tarjeta of tarjetasProducto) {
         if (pasaFiltros(tarjeta)) {
             mostrarTarjeta(tarjeta)
-            console.log(tarjetasMostradas.length)
         }
         else {
             ocultarTarjeta(tarjeta)
         }
     }
-    console.log(tarjetasMostradas.length)
-    numeroProductosMostrados.textContent = tarjetasMostradas.length
 }
-
-//Contar los productos que se estan mostrando en cada momento
-numeroProductosTotales.textContent = tarjetasProducto.length
-
 
 // Mostrar y ocultar tarjetas
 const ocultarTarjeta = (tarjeta) => {
@@ -89,7 +92,7 @@ const ocultarTarjeta = (tarjeta) => {
 
 const mostrarTarjeta = (tarjeta) => {
     return tarjeta.classList.remove("hidden")
-    
+
 }
 
 
@@ -233,6 +236,7 @@ botonLimpiar.onclick = () => {
     for (let tarjeta of tarjetasProducto) {
         tarjeta.classList.remove('hidden')
     }
+    contarProductosMostrados()
 }
 
 ///////////////// TERMINA SECCION FILTROS - COMIENZAN TRANSFORMACIONES /////////////////////
@@ -286,18 +290,18 @@ for (let opcion of opcionesDePago) {
 //Calcular el total de acuerdo a las opciones de pago seleccionadas
 //Devolver el resultado final en el parrafo "Total"
 const calcularTotal = () => {
-    let valorTotal = valorSubtotal 
+    let valorTotal = valorSubtotal
     valorTotal = valorSubtotal + tieneRecargoCredito() + tieneEnvio() + tieneTarjetaDescuento()
     total.textContent = (`${`$`}${valorTotal}`)
     return valorTotal
 }
 
 // Calcular el recargo si el usuario paga con tarjeta de credito
-let recargoPagoConCredito 
+let recargoPagoConCredito
 
 const tieneRecargoCredito = () => {
     if (radioPagoCredito.checked) {
-        recargoPagoConCredito =  valorSubtotal * 0.1 
+        recargoPagoConCredito = valorSubtotal * 0.1
         recargo.textContent = (`${`$`}${recargoPagoConCredito}`)
         parrafoRecargo.classList.remove('hidden')
     }
@@ -313,7 +317,7 @@ let costoEnvio
 
 const tieneEnvio = () => {
     if (checkboxEnvio.checked) {
-        costoEnvio =  50
+        costoEnvio = 50
         envio.textContent = (`${`$`}${costoEnvio}`)
         parrafoEnvio.classList.remove('hidden')
     }
