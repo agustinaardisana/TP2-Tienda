@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi tienda</title>
+    <title>Tienda</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
@@ -12,16 +12,16 @@
 
 <body>
     <!--comienza header-->
-    <header>
+    <header id="header-principal">
         <nav class="header-nav">
-            <div class="header-logo">
+            <div class="header-logo" role="img" aria-labelledby="logo-descripcion">
                 <img class="logo" src="Imagenes/ada.svg">
-                <p>ADA SHOP</p>
+                <p id="logo-descripcion" >ADA SHOP</p>
             </div>
-            <div class="header-menu">
-                <button class="boton-carrito">
+            <div class="header-menu" role="button" aria-label="Ver contenido del carrito.">
+                <button type="button" class="boton-carrito">
                     <i class="fas fa-shopping-cart"></i>
-                    Carrito (<span>0</span> items)
+                    Carrito (<span class="carrito-contenido-contador">0</span> items)
                 </button>
             </div>
         </nav>
@@ -29,9 +29,8 @@
 
         <div class="header-banner">
             <h1>ELECTRÓNICA</h1>
-            <img alt="productos de electrónica" src="Imagenes/banner.jpg">
+            <img src="Imagenes/banner.jpg" alt="Productos de electrónica presentados sobre una mesa de trabajo. Ilustración.">
             <div class="overlay-header-banner"></div>
-        </div>
         </div>
     </header>
     <!--termina header, comienza main-->
@@ -39,14 +38,14 @@
         <!--comienza aside(filtros)-->
         <div class="overlay aside-filtros hidden"></div>
 
-        <aside id="filtros">
+        <aside id="filtros" aria-labelledby="filtros-titulo">
             <div>
-                <button class="aside-filtros boton-cerrar"><i class="fas fa-times"></i></button>
+                <button type="button" aria-label="Cerrar filtros" class="aside-filtros boton-cerrar"><i class="fas fa-times"></i></button>
             </div>
             <div class="filtros-contenedor">
                 <div class="filtros-titulo-contenedor">
-                    <h2>FILTROS</h2>
-                    <button class="filtros-boton">
+                    <h2 id="filtros-titulo">FILTROS</h2>
+                    <button type="button" aria-label="Limpiar filtros" class="filtros-boton-limpiar">
                         <i class="fas fa-trash-alt"></i>
                         Limpiar
                     </button>
@@ -145,31 +144,31 @@
         </aside>
         <!--termina aside, comienza seccion menu productos-->
         <section class="productos-seccion">
-            <div class="productos-menu">
+            <header class="productos-menu">
                 <p class="productos-cantidad">
                     Mostrando <span class="productos-mostrados-cantidad">12</span> producto(s)
                     de <span class="productos-totales-cantidad">12</span>
                 </p>
                 <div class="productos-vista-contenedor">
                     Ver como
-                    <button class="boton-vista tabla">
+                    <button type="button" aria-label="Ver como tabla" class="boton-vista tabla">
                         <i class="fas fa-th"></i>
                     </button>
-                    <button class="boton-vista lista">
+                    <button type="button" aria-label="Ver como lista" class="boton-vista lista">
                         <i class="fas fa-list"></i>
                     </button>
                 </div>
-                <div class="boton-filtros-responsive">
+                <button type="button" aria-label="Abrir filtros" class="boton-filtros-responsive">
                     <i class="fas fa-filter"></i>
                     Filtros
-                </div>
-            </div>
+                </button>
+            </header>
             <!--termina menu productos, comienza seccion tabla productos-->
             <div class="productos-tarjetas-contenedor">
                 <article class="producto-tarjeta" data-nombre="celular xiaomi" data-categoria="celulares"
                     data-precio="22499" data-review="3">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/xiaomi.jpg">
+                        <img class="producto-imagen" src="Imagenes/xiaomi.jpg" alt="Celular Xiaomi gris platino.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -189,7 +188,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -197,7 +196,7 @@
                 <article class="producto-tarjeta" data-nombre="playstation 4" data-categoria="consolas"
                     data-precio="59999" data-review="5">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/ps4.jpg">
+                        <img class="producto-imagen" src="Imagenes/ps4.jpg" alt="Consola PlayStation 4 blanca con mando.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -217,7 +216,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -225,7 +224,7 @@
                 <article class="producto-tarjeta" data-nombre="camara nikon" data-categoria="camaras"
                     data-precio="54999" data-review="2">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/nikon.jpg">
+                        <img class="producto-imagen" src="Imagenes/nikon.jpg" alt="Cámara Nikon modelo D5600 con lente.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -245,7 +244,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -253,7 +252,7 @@
                 <article class="producto-tarjeta" data-nombre="headphones sony" data-categoria="accesorios"
                     data-precio="24999" data-review="3">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/headphones.png">
+                        <img class="producto-imagen" src="Imagenes/headphones.png" alt="Auriculares externos Sony negros con detalles en gris.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -273,7 +272,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -281,7 +280,7 @@
                 <article class="producto-tarjeta" data-nombre="nintendo switch" data-categoria="consolas"
                     data-precio="46999" data-review="5">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/switch.jpg">
+                        <img class="producto-imagen" src="Imagenes/switch.jpg" alt="Consola Nintendo Switch negra con cargador y dos mandos individuales, uno azul y uno rojo.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -301,7 +300,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -309,7 +308,7 @@
                 <article class="producto-tarjeta" data-nombre="notebook asus" data-categoria="notebooks"
                     data-precio="32999" data-review="1">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/asus.png">
+                        <img class="producto-imagen" src="Imagenes/asus.png" alt="Notebook Asus negra con detalles laterales en verde.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -329,7 +328,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -337,7 +336,7 @@
                 <article class="producto-tarjeta" data-nombre="notebook msi" data-categoria="notebooks"
                     data-precio="37999" data-review="3">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/msi.png">
+                        <img class="producto-imagen" src="Imagenes/msi.png" alt="Notebook MSI negra con detalles laterales en rojo.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -357,7 +356,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -365,7 +364,7 @@
                 <article class="producto-tarjeta" data-nombre="headphones philips" data-categoria="accesorios"
                     data-precio="11999" data-review="2">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/headphones.png">
+                        <img class="producto-imagen" src="Imagenes/headphones.png" alt="Auriculares externos negros Philips.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -385,7 +384,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -393,7 +392,7 @@
                 <article class="producto-tarjeta" data-nombre="macbook" data-categoria="notebooks" data-precio="119999"
                     data-review="4">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/macbook.png">
+                        <img class="producto-imagen" src="Imagenes/macbook.png" alt="Macbook gris.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -413,7 +412,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -421,7 +420,7 @@
                 <article class="producto-tarjeta" data-nombre="iphone" data-categoria="celulares" data-precio="79999"
                     data-review="3">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/iphone.jpeg">
+                        <img class="producto-imagen" src="Imagenes/iphone.jpeg" alt="Iphone negro con parte trasera gris.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -441,7 +440,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -449,7 +448,7 @@
                 <article class="producto-tarjeta" data-nombre="xbox one" data-categoria="consolas" data-precio="69999"
                     data-review="4">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/xbox.jpg">
+                        <img class="producto-imagen" src="Imagenes/xbox.jpg" alt="Consola de videojuegos Xbox One blanca con un mando.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -469,7 +468,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -477,7 +476,7 @@
                 <article class="producto-tarjeta" data-nombre="mouse gamer" data-categoria="accesorios"
                     data-precio="4999" data-review="5">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/mouse.jpg">
+                        <img class="producto-imagen" src="Imagenes/mouse.jpg" alt="Mouse gamer negro con detalles en colores estridentes.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -497,7 +496,7 @@
                             </div>
                         </div>
                         <div class="producto-comprar">
-                            <button class="boton-comprar">COMPRAR</button>
+                            <button type="button" class="boton-comprar">COMPRAR</button>
                         </div>
                     </div>
                 </article>
@@ -506,27 +505,27 @@
     </main>
     <!--termina main, comienza footer-->
     <footer class="footer-contenedor">
-        <div class="footer-contenido">
-            <img class="logo" src="Imagenes/ada.svg">
-            <p class="footer-mensaje">ADA SHOP - Gracias por visitarnos</p>
+        <div class="footer-contenido" role="img" aria-labelledby="footer-mensaje">
+            <img class="logo" src="Imagenes/ada.svg" alt="Logo tienda ADA.">
+            <p id="footer-mensaje" class="footer-mensaje">ADA SHOP - Gracias por visitarnos</p>
         </div>
     </footer>
     <!--termina footer, comienza secci'on carrito-->
     <div class="overlay carrito hidden"></div>
 
     <section class="carrito-seccion">
-        <div class="carrito-titulo-contenedor">
+        <header class="carrito-titulo-contenedor">
             <h2>Carrito</h2>
             <button class="carrito boton-cerrar"><i class="fas fa-times"></i></button>
-        </div>
+        </header>
 
         <div class="contenedor-mensaje-carrito-vacio">
             <p class="mensaje-carrito-vacio">No tienes productos en el carrito, ¡agrega algunos!</p>
         </div>
 
         <div class="carrito-botones-contenedor">
-            <button class="boton-comprar carrito">COMPRAR</button>
-            <button class="boton-vaciar">VACIAR</button>
+            <button type="button" class="boton-comprar carrito">COMPRAR</button>
+            <button type="button" class="boton-vaciar">VACIAR</button>
         </div>
 
         <div class="contenedor-carrito-lleno hidden">
@@ -536,7 +535,7 @@
                     <img class="carrito-producto-imagen">
                     <div class="carrito-producto-detalles">
                         <h3 class="carrito-producto-nombre">Nombre Producto</h3>
-                        <button class="boton-eliminar-producto">
+                        <button type="button" aria-label="Eliminar producto" class="boton-eliminar-producto">
                             <i class="far fa-trash-alt"></i>
                         </button>
                     </div>
@@ -550,14 +549,14 @@
                 </article>
             </div>
             <p>Subtotal <span class="subtotal"></span></p>
-            <button class="boton-comprar carrito">COMPRAR</button>
-            <button class="boton-vaciar">VACIAR</button>
+            <button type="button" class="boton-comprar carrito">COMPRAR</button>
+            <button type="button" class="boton-vaciar">VACIAR</button>
         </div>
     </section>
 
     <div class="overlay checkout hidden">
-        <section class="checkout-seccion">
-            <h2>Checkout</h2>
+        <section class="checkout-seccion" aria-labelledby="checkout-seccion-titulo">
+            <h2 id="checkout-seccion-titulo">Checkout</h2>
             <div class="checkout-formulario-contenedor">
                 <form class="checkout-formulario" id="checkout-formulario" >
                     <div class="formulario-datos-personales">
@@ -624,8 +623,8 @@
                 </div>
             </div>
             <div class="checkout-botones-acciones">
-                <button class="boton-seguir-comprando">SEGUIR COMPRANDO</button>
-                <button class="boton-finalizar" type="submit" form="checkout-formulario" >FINALIZAR</button>
+                <button type="button" class="boton-seguir-comprando">SEGUIR COMPRANDO</button>
+                <button type="button" class="boton-finalizar" type="submit" form="checkout-formulario" >FINALIZAR</button>
             </div>
         </section>
     </div>
