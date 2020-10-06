@@ -22,7 +22,7 @@ button {
     cursor: pointer;
 }
 
-label:not(.not-flex) {
+label {
     display: flex;
 }
 
@@ -41,6 +41,12 @@ h3 {
 }
 
 /*Agrupo elementos de distintas secciones que comparten estilos*/
+section:not(.checkout-seccion), .carrito-botones-contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .productos-menu, .filtros-titulo-contenedor, .carrito-titulo-contenedor, .productos-vista-contenedor {
     display: flex;
     justify-content: space-between;
@@ -158,11 +164,6 @@ aside {
 }
 
 /*termina aside, comienza seccion menu productos*/
-section:not(.checkout-seccion) {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
 
 .filtros-contenedor {
     padding: 0 35px 15px;
@@ -269,11 +270,11 @@ section:not(.checkout-seccion) {
 .boton-comprar, .boton-vaciar, .boton-seguir-comprando {
     height: 50px;
     transition: background-color 0.3s;
-}
-
-.boton-comprar:hover, .boton-vaciar:hover .boton-seguir-comprando:hover {
-    background-color: #D3D3D3;
 } 
+
+.boton-comprar:hover, .boton-seguir-comprando:hover {
+    background-color: #D3D3D3;
+}
 
 /*termina main, comienza footer*/
 footer {
@@ -327,11 +328,21 @@ footer {
 }
 
 .boton-comprar.carrito, .boton-finalizar {
-    background-color: green;
+    background-color: #4caf50;
+    color: white;
+}
+.boton-comprar:hover, .boton-finalizar:hover {
+    background-color: #388e3c;
 }
 
 .boton-vaciar {
     border: 1px solid red;
+    color: #d32f2f;
+}
+
+.boton-vaciar:hover {
+    color: white;
+    background-color: red;
 }
 
 .carrito-seccion {
@@ -373,6 +384,10 @@ footer {
     padding: 20px 20px 40px;
 }
 
+.checkout-formulario {
+    width: 100%;
+}
+
 .formulario-datos-personales {
     margin-bottom: 20px;
 }
@@ -381,11 +396,11 @@ footer {
     margin-top: 20px;
 }
 
-.datos-personales >label {
+.datos-personales > label {
     flex-direction: column;
 }
 
-.datos-personales > label > input {
+.datos-personales label input {
     margin-bottom: 20px;
 }
 
@@ -397,11 +412,14 @@ footer {
 .opciones-pago {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
 }
 
-.opciones-pago > label {
-    margin-bottom: 10px;
+.opciones-pago label {
+    margin-bottom: 15px;
+}
+
+.opciones-pago label input {
+    margin-right: 20px;
 }
 
 .checkout-resumen-contenedor {
