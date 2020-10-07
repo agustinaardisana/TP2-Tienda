@@ -184,6 +184,8 @@ aside {
 .filtros-boton-limpiar {
     padding: 0;
     margin: 0;
+    background: none;
+    border: none;
 }
 
 .productos-menu {
@@ -308,6 +310,8 @@ footer {
 .boton-cerrar {
     font-size: 20px;
     margin-top: 0;
+    background: none;
+    border: none;
 }
 
 .carrito-seccion {
@@ -490,6 +494,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: none;
+    border: none;
     }
 
     .fas.fa-filter {

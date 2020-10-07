@@ -14,13 +14,13 @@
     <!--comienza header-->
     <header id="header-principal">
         <nav class="header-nav">
-            <div class="header-logo" role="img" aria-labelledby="logo-descripcion">
-                <img class="logo" src="Imagenes/ada.svg">
-                <p id="logo-descripcion" >ADA SHOP</p>
+            <div class="header-logo" aria-labelledby="logo-descripcion">
+                <img class="logo" role="img" src="Imagenes/ada.svg" alt="Logo tienda ADA.">
+                <p id="logo-descripcion">ADA SHOP</p>
             </div>
-            <div class="header-menu" role="button" aria-label="Ver contenido del carrito.">
-                <button type="button" class="boton-carrito">
-                    <i class="fas fa-shopping-cart"></i>
+            <div class="header-menu">
+                <button type="button" aria-label="Ver contenido del carrito." class="boton-carrito">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                     Carrito (<span class="carrito-contenido-contador">0</span> items)
                 </button>
             </div>
@@ -29,7 +29,8 @@
 
         <div class="header-banner">
             <h1>ELECTRÓNICA</h1>
-            <img src="Imagenes/banner.jpg" alt="Productos de electrónica presentados sobre una mesa de trabajo. Ilustración.">
+            <img src="Imagenes/banner.jpg"
+                alt="Productos de electrónica presentados sobre una mesa de trabajo. Ilustración.">
             <div class="overlay-header-banner"></div>
         </div>
     </header>
@@ -40,23 +41,26 @@
 
         <aside id="filtros" aria-labelledby="filtros-titulo">
             <div>
-                <button type="button" aria-label="Cerrar filtros" class="aside-filtros boton-cerrar"><i class="fas fa-times"></i></button>
+                <button type="button" class="aside-filtros boton-cerrar" aria-label="Cerrar filtros">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
             </div>
             <div class="filtros-contenedor">
                 <div class="filtros-titulo-contenedor">
                     <h2 id="filtros-titulo">FILTROS</h2>
                     <button type="button" aria-label="Limpiar filtros" class="filtros-boton-limpiar">
-                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
                         Limpiar
                     </button>
                 </div>
             </div>
+
             <form>
                 <div class="filtros-contenedor">
                     <h3>BÚSQUEDA</h3>
-                    <label for="barra-busqueda" class="barra-busqueda">
+                    <label for="barra-busqueda" class="barra-busqueda" aria-label="Buscar productos">
                         <input name="buscar-productos" id="barra-busqueda" placeholder="Buscar productos" />
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search" aria-hidden="true"></i>
                     </label>
                 </div>
                 <div class="filtros-contenedor">
@@ -92,51 +96,51 @@
                     <label for="5-estrellas">
                         <input class="filtro-review" type="checkbox" name="review-cinco-estrellas" id="5-estrellas"
                             value="5" />
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
                         (5)
                     </label>
                     <label for="4-estrellas">
                         <input class="filtro-review" type="checkbox" name="review-cuatro-estrellas" id="4-estrellas"
                             value="4" />
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
                         (4)
                     </label>
                     <label for="3-estrellas">
                         <input class="filtro-review" type="checkbox" name="review-tres-estrellas" id="3-estrellas"
                             value="3" />
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
                         (3)
                     </label>
                     <label for="2-estrellas">
                         <input class="filtro-review" type="checkbox" name="review-dos-estrellas" id="2-estrellas"
                             value="2" />
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
                         (2)
                     </label>
                     <label for="1-estrella">
                         <input class="filtro-review" type="checkbox" name="review-una-estrella" id="1-estrella"
                             value="1" />
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
                         (1)
                     </label>
                 </div>
@@ -152,14 +156,14 @@
                 <div class="productos-vista-contenedor">
                     Ver como
                     <button type="button" aria-label="Ver como tabla" class="boton-vista tabla">
-                        <i class="fas fa-th"></i>
+                        <i class="fas fa-th" aria-hidden="true"></i>
                     </button>
                     <button type="button" aria-label="Ver como lista" class="boton-vista lista">
-                        <i class="fas fa-list"></i>
+                        <i class="fas fa-list" aria-hidden="true"></i>
                     </button>
                 </div>
                 <button type="button" aria-label="Abrir filtros" class="boton-filtros-responsive">
-                    <i class="fas fa-filter"></i>
+                    <i class="fas fa-filter" aria-hidden="true"></i>
                     Filtros
                 </button>
             </header>
@@ -180,11 +184,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -196,7 +200,8 @@
                 <article class="producto-tarjeta" data-nombre="playstation 4" data-categoria="consolas"
                     data-precio="59999" data-review="5">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/ps4.jpg" alt="Consola PlayStation 4 blanca con mando.">
+                        <img class="producto-imagen" src="Imagenes/ps4.jpg"
+                            alt="Consola PlayStation 4 blanca con mando.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -208,11 +213,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -224,7 +229,8 @@
                 <article class="producto-tarjeta" data-nombre="camara nikon" data-categoria="camaras"
                     data-precio="54999" data-review="2">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/nikon.jpg" alt="Cámara Nikon modelo D5600 con lente.">
+                        <img class="producto-imagen" src="Imagenes/nikon.jpg"
+                            alt="Cámara Nikon modelo D5600 con lente.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -236,11 +242,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -252,7 +258,8 @@
                 <article class="producto-tarjeta" data-nombre="headphones sony" data-categoria="accesorios"
                     data-precio="24999" data-review="3">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/headphones.png" alt="Auriculares externos Sony negros con detalles en gris.">
+                        <img class="producto-imagen" src="Imagenes/headphones.png"
+                            alt="Auriculares externos Sony negros con detalles en gris.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -264,11 +271,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -280,7 +287,8 @@
                 <article class="producto-tarjeta" data-nombre="nintendo switch" data-categoria="consolas"
                     data-precio="46999" data-review="5">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/switch.jpg" alt="Consola Nintendo Switch negra con cargador y dos mandos individuales, uno azul y uno rojo.">
+                        <img class="producto-imagen" src="Imagenes/switch.jpg"
+                            alt="Consola Nintendo Switch negra con cargador y dos mandos individuales, uno azul y uno rojo.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -292,11 +300,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -308,7 +316,8 @@
                 <article class="producto-tarjeta" data-nombre="notebook asus" data-categoria="notebooks"
                     data-precio="32999" data-review="1">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/asus.png" alt="Notebook Asus negra con detalles laterales en verde.">
+                        <img class="producto-imagen" src="Imagenes/asus.png"
+                            alt="Notebook Asus negra con detalles laterales en verde.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -320,11 +329,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -336,7 +345,8 @@
                 <article class="producto-tarjeta" data-nombre="notebook msi" data-categoria="notebooks"
                     data-precio="37999" data-review="3">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/msi.png" alt="Notebook MSI negra con detalles laterales en rojo.">
+                        <img class="producto-imagen" src="Imagenes/msi.png"
+                            alt="Notebook MSI negra con detalles laterales en rojo.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -348,11 +358,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -364,7 +374,8 @@
                 <article class="producto-tarjeta" data-nombre="headphones philips" data-categoria="accesorios"
                     data-precio="11999" data-review="2">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/headphones.png" alt="Auriculares externos negros Philips.">
+                        <img class="producto-imagen" src="Imagenes/headphones.png"
+                            alt="Auriculares externos negros Philips.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -376,11 +387,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -404,11 +415,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -420,7 +431,8 @@
                 <article class="producto-tarjeta" data-nombre="iphone" data-categoria="celulares" data-precio="79999"
                     data-review="3">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/iphone.jpeg" alt="Iphone negro con parte trasera gris.">
+                        <img class="producto-imagen" src="Imagenes/iphone.jpeg"
+                            alt="Iphone negro con parte trasera gris.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -432,11 +444,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -448,7 +460,8 @@
                 <article class="producto-tarjeta" data-nombre="xbox one" data-categoria="consolas" data-precio="69999"
                     data-review="4">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/xbox.jpg" alt="Consola de videojuegos Xbox One blanca con un mando.">
+                        <img class="producto-imagen" src="Imagenes/xbox.jpg"
+                            alt="Consola de videojuegos Xbox One blanca con un mando.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -460,11 +473,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -476,7 +489,8 @@
                 <article class="producto-tarjeta" data-nombre="mouse gamer" data-categoria="accesorios"
                     data-precio="4999" data-review="5">
                     <div class="producto-imagen-contenedor">
-                        <img class="producto-imagen" src="Imagenes/mouse.jpg" alt="Mouse gamer negro con detalles en colores estridentes.">
+                        <img class="producto-imagen" src="Imagenes/mouse.jpg"
+                            alt="Mouse gamer negro con detalles en colores estridentes.">
                     </div>
                     <div class="producto-descripcion">
                         <div class="producto-detalles">
@@ -488,11 +502,11 @@
                                 aliquam ut architecto repellendus itaque.
                             </p>
                             <div class="producto-review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="producto-comprar">
@@ -505,8 +519,8 @@
     </main>
     <!--termina main, comienza footer-->
     <footer class="footer-contenedor">
-        <div class="footer-contenido" role="img" aria-labelledby="footer-mensaje">
-            <img class="logo" src="Imagenes/ada.svg" alt="Logo tienda ADA.">
+        <div class="footer-contenido"  aria-labelledby="footer-mensaje">
+            <img class="logo" role="img" src="Imagenes/ada.svg" alt="Logo tienda ADA.">
             <p id="footer-mensaje" class="footer-mensaje">ADA SHOP - Gracias por visitarnos</p>
         </div>
     </footer>
@@ -516,7 +530,9 @@
     <section class="carrito-seccion">
         <header class="carrito-titulo-contenedor">
             <h2>Carrito</h2>
-            <button class="carrito boton-cerrar"><i class="fas fa-times"></i></button>
+            <button type="button" class="carrito boton-cerrar" aria-label="Cerrar carrito">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
         </header>
 
         <div class="contenedor-mensaje-carrito-vacio">
@@ -536,7 +552,7 @@
                     <div class="carrito-producto-detalles">
                         <h3 class="carrito-producto-nombre">Nombre Producto</h3>
                         <button type="button" aria-label="Eliminar producto" class="boton-eliminar-producto">
-                            <i class="far fa-trash-alt"></i>
+                            <i class="far fa-trash-alt" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="carrito-producto-precio-contenedor">
@@ -548,6 +564,7 @@
                     </div>
                 </article>
             </div>
+
             <p>Subtotal <span class="subtotal"></span></p>
             <button type="button" class="boton-comprar carrito">COMPRAR</button>
             <button type="button" class="boton-vaciar">VACIAR</button>
@@ -558,28 +575,31 @@
         <section class="checkout-seccion" aria-labelledby="checkout-seccion-titulo">
             <h2 id="checkout-seccion-titulo">Checkout</h2>
             <div class="checkout-formulario-contenedor">
-                <form class="checkout-formulario" id="checkout-formulario" >
-                    <div class="formulario-datos-personales">
-                        <h3>Datos Personales</h3>
+                <form class="checkout-formulario" id="checkout-formulario">
+                    <div class="formulario-datos-personales" aria-labelledby="datos-personales-titulo">
+                        <h3 class="datos-personales-titulo">Datos Personales</h3>
                         <div class="datos-personales">
+                            <!--reemplazo (*) por (requerido) para mejorar la accseibilidad-->
                             <label for="nombre-apellido">
-                                Nombre y Apellido*
-                                <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace" required />
+                                Nombre y Apellido (requerido)
+                                <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace"
+                                    name="nombre y apellido" required />
                             </label>
 
                             <label for="email">
-                                Email*
-                                <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" required />
+                                Email (requerido)
+                                <input id="email" type="email" placeholder="p. ej.: ada.lovelace@gmail.com" name="email"
+                                    required />
                             </label>
                         </div>
                     </div>
 
-                    <div class="formulario-opciones-pago">
-                        <h3>Opciones de Pago</h3>
+                    <div class="formulario-opciones-pago" aria-labelledby="opciones-pago-titulo">
+                        <h3 class="opciones-pago-titulo">Opciones de Pago</h3>
                         <div class="opciones-pago">
                             <label for="opciones-pago-efectivo">
                                 <input class="opciones-pago" id="opciones-pago-efectivo" type="radio"
-                                    name="opciones-pago" value="Efectivo / Débito" />
+                                    name="opciones-pago" value="Efectivo o débito" />
                                 Efectivo / Débito
                             </label>
                             <label for="opciones-pago-credito">
@@ -598,6 +618,7 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="checkout-resumen-contenedor">
                     <h3>Resumen</h3>
                     <p class="checkout-resumen subtotal-parrafo">
@@ -622,9 +643,14 @@
                     </p>
                 </div>
             </div>
+
             <div class="checkout-botones-acciones">
-                <button type="button" class="boton-seguir-comprando">SEGUIR COMPRANDO</button>
-                <button type="button" class="boton-finalizar" type="submit" form="checkout-formulario" >FINALIZAR</button>
+                <button type="button" class="boton-seguir-comprando">
+                    SEGUIR COMPRANDO
+                </button>
+                <button type="submit" class="boton-finalizar" form="checkout-formulario">
+                    FINALIZAR
+                </button>
             </div>
         </section>
     </div>
