@@ -13,11 +13,16 @@ const tarjetasOcultas = document.getElementsByClassName('producto-tarjeta hidden
 const ventanaCarrito = document.querySelector('.carrito-seccion')
 const body = document.body
 const botonAbrirCheckout = document.querySelector('.boton-comprar.carrito')
-const ventanaCheckout = document.querySelector('.overlay.checkout')
+const overlayPopups = document.querySelector('.overlay.popups')
+const dialogoCheckout = document.querySelector('.checkout-seccion')
+const botonVaciarCarrito = document.querySelector('.boton-vaciar.carrito')
+const dialogoVaciarCarrito = document.querySelector('.vaciar-carrito-contenedor')
+const botonCancelarVaciarCarrito = document.querySelector('.boton-cancelar')
+const botonConfirmarVaciarCarrito = document.querySelector('.boton-vaciar.confirmar-vaciar')
 const botonSeguirComprando = document.querySelector('.boton-seguir-comprando')
 const botonFiltrosResponsive = document.querySelector('.boton-filtros-responsive')
 const asideFiltrosResponsive = document.querySelector('#filtros')
-const overlay = document.querySelector('.overlay')
+const overlaySidebars = document.querySelector('.overlay.sidebars')
 const filtroCategoria = document.getElementsByClassName('filtro-categoria')
 
 //Variables Checkout
@@ -27,6 +32,7 @@ const envio = document.querySelector('.carrito-envio-valor')
 const recargo = document.querySelector('.carrito-recargo-valor')
 const total = document.querySelector('.carrito-total-valor')
 const opcionesDePago = document.getElementsByClassName('opciones-pago')
+
 //const radioPagoEfectivo = document.querySelector('#opciones-pago-efectivo')
 const radioPagoCredito = document.querySelector('#opciones-pago-credito')
 const checkboxEnvio = document.querySelector('#envio')
@@ -243,7 +249,7 @@ botonLimpiar.onclick = () => {
 
 //Abrir ventana del carrito
 botonAbrirCarrito.onclick = () => {
-    overlay.classList.remove('hidden')
+    overlaySidebars.classList.remove('hidden')
     ventanaCarrito.classList.add('abierto')
     body.classList.add('no-scroll')
 }
@@ -251,34 +257,62 @@ botonAbrirCarrito.onclick = () => {
 //Cerrar ventana del carrito y del aside filtros
 for (let botonCerrar of botonesCerrar) {
     botonCerrar.onclick = () => {
-        overlay.classList.add('hidden')
+        overlaySidebars.classList.add('hidden')
         ventanaCarrito.classList.remove('abierto')
         asideFiltrosResponsive.classList.remove('abierto')
+        asideFiltrosResponsive.removeAttribute("aria-modal")
+        asideFiltrosResponsive.removeAttribute("role")
         body.classList.remove('no-scroll')
     }
 }
 
 //Abrir aside filtros responsive
 botonFiltrosResponsive.onclick = () => {
-    overlay.classList.remove('hidden')
+    overlaySidebars.classList.remove('hidden')
     asideFiltrosResponsive.classList.add('abierto')
+    asideFiltrosResponsive.setAttribute("aria-modal", true)
+    asideFiltrosResponsive.setAttribute("role", "dialog")
     body.classList.add('no-scroll')
 }
 
-//Abrir ventana checkout
+//Abrir popup checkout
 botonAbrirCheckout.onclick = () => {
-    ventanaCheckout.classList.remove('hidden')
+    overlayPopups.classList.remove('hidden')
+    dialogoCheckout.classList.remove('hidden')
 }
 
-//Cerrar ventana chekout
+//Cerrar popup chekout
 botonSeguirComprando.onclick = () => {
-    ventanaCheckout.classList.add('hidden')
+    overlayPopups.classList.add('hidden')
+    dialogoCheckout.classList.add('hidden')
+
+}
+
+//Abrir popup vaciar carrito
+botonVaciarCarrito.onclick = () => {
+    overlayPopups.classList.remove('hidden')
+    dialogoVaciarCarrito.classList.remove('hidden')
+}
+
+//Cerrar popup vaciar carrito
+botonCancelarVaciarCarrito.onclick = () => {
+    overlayPopups.classList.add('hidden')
+    dialogoVaciarCarrito.classList.add('hidden')
+
+}
+
+//Confirmar vaciar carrito (a los fines del TP basico funciona igual que el botonCancelarVaciarCarrito)
+botonConfirmarVaciarCarrito.onclick = () => {
+    overlayPopups.classList.add('hidden')
+    dialogoVaciarCarrito.classList.add('hidden')
+
 }
 
 ///////////////// TERMINAN RANSFORMACIONES - COMIENZAN FUNCIONALIDADES CHECKOUT /////////////////////
 
 // Recuperar el valor "subtotal" que viene del carrito
-let valorSubtotal = Number(subtotal.textContent)
+let valorSubtotal = Number(subtotal.textContent.slice(1))
+total.textContent = (`${`$`}${valorSubtotal}`)
 
 //Escuchar los eventos que suceden en las opciones de pago
 for (let opcion of opcionesDePago) {
@@ -317,7 +351,7 @@ let costoEnvio
 
 const tieneEnvio = () => {
     if (checkboxEnvio.checked) {
-        costoEnvio = 50
+        costoEnvio = 300
         envio.textContent = (`${`$`}${costoEnvio}`)
         parrafoEnvio.classList.remove('hidden')
     }
@@ -334,7 +368,7 @@ let valorDescuento
 
 const tieneTarjetaDescuento = () => {
     if (checkboxDescuento.checked) {
-        valorDescuento = - valorSubtotal * 0.1
+        valorDescuento = - valorSubtotal * 0.05
         descuento.textContent = (`${`$`}${valorDescuento}`)
         parrafoDescuento.classList.remove('hidden')
     }
