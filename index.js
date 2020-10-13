@@ -3,15 +3,14 @@ const barraBusqueda = document.querySelector('#barra-busqueda')
 const tarjetasProducto = document.getElementsByClassName('producto-tarjeta')
 const filtroRating = document.getElementsByClassName('filtro-review')
 const botonLimpiar = document.querySelector('.filtros-boton-limpiar')
-const botonesCerrar = document.querySelectorAll('.boton-cerrar')
-const botonAbrirCarrito = document.querySelector('.boton-carrito')
 const numeroProductosMostrados = document.querySelector('.productos-mostrados-cantidad')
 const numeroProductosTotales = document.querySelector('.productos-totales-cantidad')
 const tarjetasOcultas = document.getElementsByClassName('producto-tarjeta hidden')
 
 //Variables Transformaciones
-const ventanaCarrito = document.querySelector('.carrito-seccion')
 const body = document.body
+const ventanaCarrito = document.querySelector('.carrito-seccion')
+const botonesCerrar = document.querySelectorAll('.boton-cerrar')
 const botonAbrirCheckout = document.querySelector('.boton-comprar.carrito')
 const overlayPopups = document.querySelector('.overlay.popups')
 const dialogoCheckout = document.querySelector('.checkout-seccion')
@@ -24,6 +23,13 @@ const botonFiltrosResponsive = document.querySelector('.boton-filtros-responsive
 const asideFiltrosResponsive = document.querySelector('#filtros')
 const overlaySidebars = document.querySelector('.overlay.sidebars')
 const filtroCategoria = document.getElementsByClassName('filtro-categoria')
+
+//Variables Carrito
+const botonAbrirCarrito = document.querySelector('.boton-carrito')
+const botonAgregarAlCarrito =  document.querySelectorAll('.boton-agregar-al-carrito')
+const mensajeCarritoVacio = document.querySelector(".contenedor-carrito-vacio")
+const contenidoCarritoLleno = document.querySelector(".carrito-productos-agregados")
+
 
 //Variables Checkout
 const subtotal = document.querySelector('.carrito-subtotal-valor')
@@ -247,13 +253,6 @@ botonLimpiar.onclick = () => {
 
 ///////////////// TERMINA SECCION FILTROS - COMIENZAN TRANSFORMACIONES /////////////////////
 
-//Abrir ventana del carrito
-botonAbrirCarrito.onclick = () => {
-    overlaySidebars.classList.remove('hidden')
-    ventanaCarrito.classList.add('abierto')
-    body.classList.add('no-scroll')
-}
-
 //Cerrar ventana del carrito y del aside filtros
 for (let botonCerrar of botonesCerrar) {
     botonCerrar.onclick = () => {
@@ -308,7 +307,81 @@ botonConfirmarVaciarCarrito.onclick = () => {
 
 }
 
-///////////////// TERMINAN RANSFORMACIONES - COMIENZAN FUNCIONALIDADES CHECKOUT /////////////////////
+///////////////// TERMINAN RANSFORMACIONES - COMIENZAN FUNCIONALIDADES DEL CARRITO /////////////////////
+
+//Abrir ventana del carrito
+botonAbrirCarrito.onclick = () => {
+    overlaySidebars.classList.remove('hidden')
+    ventanaCarrito.classList.add('abierto')
+    body.classList.add('no-scroll')
+    actualizarCarrito()
+}
+
+for (let boton of botonAgregarAlCarrito) {
+    boton.onclick = () => {
+        boton.classList.add('producto-agregado')
+    }
+}
+
+const crearTarjetaProductoEnCarrito = (producto) => {
+    const productoHTML = 
+    `<article class="carrito-producto-tarjeta" data-nombre="${producto.dataset.nombre}" data-precio="${producto.dataset.precio}">
+                    <img class="carrito-producto-imagen" src="${producto.dataset.img}" aria-hidden="true">
+                    <div class="carrito-producto-detalles-contenedor">
+                        <div class="carrito-producto-detalles">
+                            <h3 class="carrito-producto-nombre">${producto.dataset.nombre}</h3>
+                            <button type="button" aria-label="Eliminar producto" class="boton-eliminar-producto">
+                                <i class="far fa-trash-alt" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="carrito-producto-precio-contenedor">
+                            <label for="carrito-producto-cantidad" class="not-flex">
+                                <input id="carrito-producto-cantidad" type="number" min="0" value="1" />
+                                unidades
+                            </label>
+                            <p class="carrito-producto-precio">x ${`$`}${producto.dataset.precio}</p>
+                        </div>
+                    </div>
+                </article>`
+                
+    return productoHTML
+}
+
+const actualizarCarrito = () => {
+    const productosAgregadosAlCarrito = document.querySelectorAll('.producto-agregado')
+
+    if (productosAgregadosAlCarrito.length === 0) {
+        mensajeCarritoVacio.classList.remove('hidden')
+        contenidoCarritoLleno.classList.add('hidden')
+        mensajeCarritoVacio.textContent = `No tienes productos en el carrito, ¡agrega algunos!`
+    } 
+    else {
+        mensajeCarritoVacio.classList.add('hidden')
+        mostrarTarjetasProductoEnHTML = "" //variable acumuladora
+
+        for (let producto of productosAgregadosAlCarrito) {
+            mostrarTarjetasProductoEnHTML = mostrarTarjetasProductoEnHTML + crearTarjetaProductoEnCarrito(producto)
+        }
+        contenidoCarritoLleno.innerHTML = mostrarTarjetasProductoEnHTML
+    }
+}
+
+//Eliminar producto del carrito usando el icono
+const botonesEliminarProducto = document.querySelectorAll('.boton-eliminar-producto')
+console.log(botonesEliminarProducto)
+
+const eliminarProductoDelCarrito = (producto) => {
+    console.log(botonesEliminarProducto)
+
+    for (let boton of botonesEliminarProducto) {
+        if (boton.onclick) {
+            producto.remove()
+        }
+    }
+}
+
+///////////////// TERMINAN FUNCIONALIDADES AGREGAR PRODUCTOS AL CARRITO - COMIENZAN FUNCIONALIDADES CHECKOUT /////////////////////
+
 
 // Recuperar el valor "subtotal" que viene del carrito
 let valorSubtotal = Number(subtotal.textContent.slice(1))
