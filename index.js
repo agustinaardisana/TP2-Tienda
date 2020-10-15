@@ -26,10 +26,11 @@ const filtroCategoria = document.getElementsByClassName('filtro-categoria')
 
 //Variables Carrito
 const botonAbrirCarrito = document.querySelector('.boton-carrito')
-const botonAgregarAlCarrito =  document.querySelectorAll('.boton-agregar-al-carrito')
+const botonAgregarAlCarrito = document.querySelectorAll('.boton-agregar-al-carrito')
 const mensajeCarritoVacio = document.querySelector(".contenedor-carrito-vacio")
+const contenedorCarritoLleno = document.querySelector(".contenedor-carrito-lleno")
 const contenidoCarritoLleno = document.querySelector(".carrito-productos-agregados")
-
+const subtotalCarrito = document.querySelector('.valor-subtotal-carrito')
 
 //Variables Checkout
 const subtotal = document.querySelector('.carrito-subtotal-valor')
@@ -314,18 +315,54 @@ botonAbrirCarrito.onclick = () => {
     overlaySidebars.classList.remove('hidden')
     ventanaCarrito.classList.add('abierto')
     body.classList.add('no-scroll')
-    actualizarCarrito()
+    actualizarFuncionesCarrito()
 }
 
 for (let boton of botonAgregarAlCarrito) {
     boton.onclick = () => {
         boton.classList.add('producto-agregado')
+        actualizarFuncionesCarrito()
     }
 }
 
+const actualizarFuncionesCarrito = () => {
+    actualizarContenidoDelCarrito()
+    actualizarSubtotal()
+    eliminarProductoDelCarrito()
+    actualizarCantidadProductos()
+    //actualizarContarProductosEnCarrito()
+}
+
+const actualizarContenidoDelCarrito = () => {
+    const productosAgregadosAlCarrito = document.querySelectorAll('.producto-agregado')
+
+    if (productosAgregadosAlCarrito.length === 0) {
+        mensajeCarritoVacio.classList.remove('hidden')
+        contenidoCarritoLleno.classList.add('hidden')
+        mensajeCarritoVacio.textContent = `No tienes productos en el carrito, ¡agrega algunos!`
+    }
+    else {
+        mensajeCarritoVacio.classList.add('hidden')
+        contenedorCarritoLleno.classList.remove('hidden')
+        cargarProductosAlCarrito()
+    }
+}
+
+const cargarProductosAlCarrito = () => {
+    const productosAgregadosAlCarrito = document.querySelectorAll('.producto-agregado')
+    mostrarTarjetasProductoEnHTML = "" //variable acumuladora
+
+    for (let producto of productosAgregadosAlCarrito) {
+        mostrarTarjetasProductoEnHTML = mostrarTarjetasProductoEnHTML + crearTarjetaProductoEnCarrito(producto)
+
+    }
+    contenidoCarritoLleno.innerHTML = mostrarTarjetasProductoEnHTML
+}
+
+//Editar innerHTML para crear tarjeta en carrito
 const crearTarjetaProductoEnCarrito = (producto) => {
-    const productoHTML = 
-    `<article class="carrito-producto-tarjeta" data-nombre="${producto.dataset.nombre}" data-precio="${producto.dataset.precio}">
+    const productoHTML =
+        `<article class="carrito-producto-tarjeta" data-nombre="${producto.dataset.nombre}" data-precio="${producto.dataset.precio}" data-cantidad="${producto.dataset.cantidad}">
                     <img class="carrito-producto-imagen" src="${producto.dataset.img}" aria-hidden="true">
                     <div class="carrito-producto-detalles-contenedor">
                         <div class="carrito-producto-detalles">
@@ -343,45 +380,60 @@ const crearTarjetaProductoEnCarrito = (producto) => {
                         </div>
                     </div>
                 </article>`
-                
+
     return productoHTML
 }
 
-const actualizarCarrito = () => {
-    const productosAgregadosAlCarrito = document.querySelectorAll('.producto-agregado')
+//Editar innerHTML para eliminar tarjeta del carrito
+const eliminarTarjetaProductoDeCarrito = () => {
+    const productoVacioHTML = `<div></div>`
 
-    if (productosAgregadosAlCarrito.length === 0) {
-        mensajeCarritoVacio.classList.remove('hidden')
-        contenidoCarritoLleno.classList.add('hidden')
-        mensajeCarritoVacio.textContent = `No tienes productos en el carrito, ¡agrega algunos!`
-    } 
-    else {
-        mensajeCarritoVacio.classList.add('hidden')
-        mostrarTarjetasProductoEnHTML = "" //variable acumuladora
-
-        for (let producto of productosAgregadosAlCarrito) {
-            mostrarTarjetasProductoEnHTML = mostrarTarjetasProductoEnHTML + crearTarjetaProductoEnCarrito(producto)
-        }
-        contenidoCarritoLleno.innerHTML = mostrarTarjetasProductoEnHTML
-    }
+    return productoVacioHTML
 }
 
 //Eliminar producto del carrito usando el icono
-const botonesEliminarProducto = document.querySelectorAll('.boton-eliminar-producto')
-console.log(botonesEliminarProducto)
-
-const eliminarProductoDelCarrito = (producto) => {
-    console.log(botonesEliminarProducto)
+const eliminarProductoDelCarrito = () => {
+    const botonesEliminarProducto = document.querySelectorAll('.boton-eliminar-producto')
 
     for (let boton of botonesEliminarProducto) {
-        if (boton.onclick) {
-            producto.remove()
+        boton.onclick = () => {
+            const tarjetaAEliminar = boton.closest('article')
+            tarjetaAEliminar.innerHTML = eliminarTarjetaProductoDeCarrito(tarjetaAEliminar)
         }
     }
 }
 
-///////////////// TERMINAN FUNCIONALIDADES AGREGAR PRODUCTOS AL CARRITO - COMIENZAN FUNCIONALIDADES CHECKOUT /////////////////////
+//Actualizar cantidad de cada producto en el carrito
+const actualizarCantidadProductos = () => {
+    const inputCantidadProductos = document.querySelectorAll('#carrito-producto-cantidad')
 
+    for (let input of inputCantidadProductos) {
+        input.onclick = () => {
+            const productosAgregadosAlCarrito = input.closest('article')
+            const valueAModificar = Number(input.value)
+            productosAgregadosAlCarrito.dataset.cantidad = valueAModificar
+            console.log(productosAgregadosAlCarrito)
+
+        }
+    }
+}
+
+//Actualizar el valor del subtotal
+const actualizarSubtotal = () => {
+    //let SubtotalCarrito = document.querySelector('.valor-subtotal-carrito')
+    const productosAgregadosAlCarrito = document.querySelectorAll('.producto-agregado')
+    let valorSubtotalCarrito = 0
+
+    for (let producto of productosAgregadosAlCarrito) {
+        valorSubtotalCarrito = valorSubtotalCarrito + (Number(producto.dataset.precio) * Number(producto.dataset.cantidad))
+        console.log(valorSubtotalCarrito)
+    }
+    subtotalCarrito.textContent = (`${`$`}${valorSubtotalCarrito}`)
+    return valorSubtotalCarrito
+}
+
+
+///////////////// TERMINAN FUNCIONALIDADES AGREGAR PRODUCTOS AL CARRITO - COMIENZAN FUNCIONALIDADES CHECKOUT /////////////////////
 
 // Recuperar el valor "subtotal" que viene del carrito
 let valorSubtotal = Number(subtotal.textContent.slice(1))
