@@ -330,7 +330,6 @@ const actualizarFuncionesCarrito = () => {
     actualizarSubtotal()
     eliminarProductoDelCarrito()
     actualizarCantidadProductos()
-    //actualizarContarProductosEnCarrito()
 }
 
 const actualizarContenidoDelCarrito = () => {
@@ -373,7 +372,7 @@ const crearTarjetaProductoEnCarrito = (producto) => {
                         </div>
                         <div class="carrito-producto-precio-contenedor">
                             <label for="carrito-producto-cantidad" class="not-flex">
-                                <input id="carrito-producto-cantidad" type="number" min="0" value="1" />
+                                <input id="carrito-producto-cantidad" type="number" min="0" value="1" data-precio="${producto.dataset.precio}" />
                                 unidades
                             </label>
                             <p class="carrito-producto-precio">x ${`$`}${producto.dataset.precio}</p>
@@ -399,8 +398,21 @@ const eliminarProductoDelCarrito = () => {
         boton.onclick = () => {
             const tarjetaAEliminar = boton.closest('article')
             tarjetaAEliminar.innerHTML = eliminarTarjetaProductoDeCarrito(tarjetaAEliminar)
+            actualizarSubtotal()
         }
     }
+}
+
+//Actualizar el valor del subtotal
+const actualizarSubtotal = () => {
+    const inputCantidadProductos = document.querySelectorAll('#carrito-producto-cantidad')
+    let valorSubtotalCarrito = 0
+
+    for (let input of inputCantidadProductos) {
+        valorSubtotalCarrito = valorSubtotalCarrito + (input.value * Number(input.dataset.precio))
+    }
+    subtotalCarrito.textContent = (`${`$`}${valorSubtotalCarrito}`)
+    return valorSubtotalCarrito
 }
 
 //Actualizar cantidad de cada producto en el carrito
@@ -408,29 +420,15 @@ const actualizarCantidadProductos = () => {
     const inputCantidadProductos = document.querySelectorAll('#carrito-producto-cantidad')
 
     for (let input of inputCantidadProductos) {
+        let valorSubtotalCarrito = 0
         input.onclick = () => {
-            const productosAgregadosAlCarrito = input.closest('article')
-            const valueAModificar = Number(input.value)
-            productosAgregadosAlCarrito.dataset.cantidad = valueAModificar
-            console.log(productosAgregadosAlCarrito)
-
+            valorSubtotalCarrito = valorSubtotalCarrito + (input.value * Number(input.dataset.precio))
+            actualizarSubtotal()
         }
     }
 }
 
-//Actualizar el valor del subtotal
-const actualizarSubtotal = () => {
-    //let SubtotalCarrito = document.querySelector('.valor-subtotal-carrito')
-    const productosAgregadosAlCarrito = document.querySelectorAll('.producto-agregado')
-    let valorSubtotalCarrito = 0
 
-    for (let producto of productosAgregadosAlCarrito) {
-        valorSubtotalCarrito = valorSubtotalCarrito + (Number(producto.dataset.precio) * Number(producto.dataset.cantidad))
-        console.log(valorSubtotalCarrito)
-    }
-    subtotalCarrito.textContent = (`${`$`}${valorSubtotalCarrito}`)
-    return valorSubtotalCarrito
-}
 
 
 ///////////////// TERMINAN FUNCIONALIDADES AGREGAR PRODUCTOS AL CARRITO - COMIENZAN FUNCIONALIDADES CHECKOUT /////////////////////
