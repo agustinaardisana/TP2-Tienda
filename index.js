@@ -399,9 +399,47 @@ const actualizarContenidoDelCarrito = () => {
     contarProductosEnCarrito(productosAgregadosAlCarrito)
 }
 
+//Editar innerHTML para eliminar tarjeta del carrito
+const eliminarTarjetaProductoDeCarrito = () => {
+    const productoVacioHTML = `<div></div>`
+
+    return productoVacioHTML
+}
+
+//Eliminar producto del carrito usando el icono
+const eliminarProductoDelCarrito = () => {
+    const botonesEliminarProducto = document.querySelectorAll('.boton-eliminar-producto')
+
+    for (let boton of botonesEliminarProducto) {
+        boton.onclick = () => {
+            const tarjetaAEliminar = boton.closest('article')
+            const nombreTarjeta = tarjetaAEliminar.dataset.nombre
+
+            tarjetaAEliminar.innerHTML = eliminarTarjetaProductoDeCarrito(tarjetaAEliminar)
+            eliminarClaseAlBorrarDelCarrito(nombreTarjeta)
+            actualizarSubtotal()
+        }
+    }
+}
+
+//Eliminar la clase 'producto-agregado' del boton
+const eliminarClaseAlBorrarDelCarrito = (nombreTarjeta) => {
+    const productosAgregadosAlCarrito = document.querySelectorAll('.producto-agregado')
+
+    for (let producto of productosAgregadosAlCarrito) {
+        const nombreProducto = producto.dataset.nombre
+
+        if (nombreProducto === nombreTarjeta) {
+            producto.classList.remove('producto-agregado')
+        }
+    }
+    actualizarFuncionesCarrito()
+}
+
 //Actualizar mostrar la cantidad de productos agregados al carrito (ignorando n de unidades de c/u)
 const contarProductosEnCarrito = (productosAgregadosAlCarrito) => {
     productosMostrados = productosAgregadosAlCarrito.length
+    console.log(productosMostrados)
     contadorProductosEnHeader.textContent = (`${productosMostrados}${` items`}`)
     contadorProductosEnCarrito.textContent = (`${productosMostrados}`)
 }
@@ -442,28 +480,6 @@ const crearTarjetaProductoEnCarrito = (producto) => {
     return productoHTML
 }
 
-//Editar innerHTML para eliminar tarjeta del carrito
-const eliminarTarjetaProductoDeCarrito = () => {
-    const productoVacioHTML = `<div></div>`
-
-    return productoVacioHTML
-}
-
-//Eliminar producto del carrito usando el icono
-const eliminarProductoDelCarrito = () => {
-    const botonesEliminarProducto = document.querySelectorAll('.boton-eliminar-producto')
-
-    for (let boton of botonesEliminarProducto) {
-        boton.onclick = () => {
-            const tarjetaAEliminar = boton.closest('article')
-            tarjetaAEliminar.innerHTML = eliminarTarjetaProductoDeCarrito(tarjetaAEliminar)
-            actualizarSubtotal()
-            //contarProductosEnCarrito(productosAgregadosAlCarrito)
-            //actualizarFuncionesCarrito()
-        }
-    }
-}
-
 //Actualizar el valor del subtotal
 const actualizarSubtotal = () => {
     const inputCantidadProductos = document.querySelectorAll('#carrito-producto-cantidad')
@@ -495,18 +511,8 @@ const actualizarCantidadProductos = () => {
 
 ///////////////// TERMINAN FUNCIONALIDADES AGREGAR PRODUCTOS AL CARRITO - COMIENZAN FUNCIONALIDADES CHECKOUT /////////////////////
 
-// Recuperar el valor "subtotal" que viene del carrito y usarlo en el checkout
-let valorSubtotal = Number(subtotal.textContent.slice(1))
-let valorTotal = Number(total.textContent.slice(1))//console.log(valorSubtotal)
-//total.textContent = (`${`$`}${valorSubtotal}`)
-
 //Escuchar los eventos que suceden en las opciones de pago
 const totalCheckout = () => {
-    let valorSubtotal = Number(subtotal.textContent.slice(1))
-    let valorTotal = Number(total.textContent.slice(1))
-    console.log(valorSubtotal)
-    console.log(valorTotal)
-
     for (let opcion of opcionesDePago) {
         opcion.onclick = () => {
             calcularTotal()
@@ -514,12 +520,11 @@ const totalCheckout = () => {
     }
 }
 
-
 //Calcular el total de acuerdo a las opciones de pago seleccionadas
 //Devolver el resultado final en el parrafo "Total"
 const calcularTotal = () => {
+    let valorSubtotal = Number(subtotal.textContent.slice(1))
     let valorTotal = valorSubtotal
-    console.log(valorTotal)
     valorTotal = valorSubtotal + tieneRecargoCredito() + tieneEnvio() + tieneTarjetaDescuento()
     total.textContent = (`${`$`}${valorTotal}`)
     return valorTotal
@@ -529,8 +534,9 @@ const calcularTotal = () => {
 let recargoPagoConCredito
 
 const tieneRecargoCredito = () => {
+    let valorSubtotal = Number(subtotal.textContent.slice(1))
     if (radioPagoCredito.checked) {
-        recargoPagoConCredito = valorSubtotal * 0.1
+        recargoPagoConCredito = Number((valorSubtotal * 0.1).toFixed(2))
         recargo.textContent = (`${`$`}${recargoPagoConCredito}`)
         parrafoRecargo.classList.remove('hidden')
     }
@@ -562,8 +568,9 @@ const tieneEnvio = () => {
 let valorDescuento
 
 const tieneTarjetaDescuento = () => {
+    let valorSubtotal = Number(subtotal.textContent.slice(1))
     if (checkboxDescuento.checked) {
-        valorDescuento = - valorSubtotal * 0.05
+        valorDescuento = Number((- valorSubtotal * 0.05).toFixed(2))
         descuento.textContent = (`${`$`}${valorDescuento}`)
         parrafoDescuento.classList.remove('hidden')
     }
