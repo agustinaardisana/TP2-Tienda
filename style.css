@@ -20,19 +20,15 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: none;
-    border: none;
 }
 
-label:not(.not-flex) {
+label {
     display: flex;
 }
 
 h1 {
     color: white;
     padding: 10px 25px;
-    position: absolute;
-    z-index: 1;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -43,14 +39,22 @@ h3 {
 }
 
 /*Agrupo elementos de distintas secciones que comparten estilos*/
+h1, .overlay-header-banner {
+    position: absolute;
+}
 
-section:not(.checkout-seccion), .carrito-botones-contenedor {
+button, .filtros-boton-limpiar {
+    background: none;
+    border: none;
+}
+
+section:not(.checkout-seccion), #header-principal, .carrito-seccion, .carrito-botones-contenedor, .contenedor-carrito-lleno {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.productos-menu, .filtros-titulo-contenedor, .carrito-titulo-contenedor, .productos-vista-contenedor {
+.productos-menu, .filtros-titulo-contenedor, .carrito-titulo-contenedor, .productos-vista-contenedor, .header-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,30 +62,37 @@ section:not(.checkout-seccion), .carrito-botones-contenedor {
 
 #barra-busqueda, #nombre-apellido, #email {
     background-color: transparent;
-    line-height: 40px;
     border: 0;
     border-bottom: 2px solid black;
+    line-height: 40px;
     height: 40px;
     width: 100%;
     max-width: 300px;
     padding: 0 20px;
 }
 
+aside, .producto-imagen-contenedor, .producto-descripcion, .producto-detalles {
+    display: flex;
+    flex-direction: column;
+}
+
+.productos-menu, .producto-tarjeta, .carrito-seccion, footer, .dialogo {
+    background-color: #ffffff;
+}
+
+h1, .carrito-seccion, .overlay.popups {
+    z-index: 1;
+}
+
 /*comienza header*/
 
 #header-principal {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3)
 }
 
 .header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 70px;
     width: 100%;
     max-width: 1400px;
@@ -109,7 +120,7 @@ section:not(.checkout-seccion), .carrito-botones-contenedor {
     margin-right: 10px;
 }
 
-.header-banner {
+.header-banner, .fas.fa-search {
     position: relative;
 }
 
@@ -117,7 +128,6 @@ section:not(.checkout-seccion), .carrito-botones-contenedor {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
-    position: absolute;
     top: 0;
     left: 0;
 }
@@ -138,19 +148,13 @@ main {
 /*comienza aside(filtros)*/
 
 aside {
-    display: flex;
-    flex-direction: column;
     max-width: 270px;
     width: 100%;
     font-size: 12px;
     font-weight: 600;
 }
 
-.aside-filtros.boton-cerrar {
-    display: none;
-}
-
-.boton-filtros-responsive {
+.aside-filtros.boton-cerrar, .boton-filtros-responsive {
     display: none;
 }
 
@@ -159,7 +163,6 @@ aside {
 }
 
 .fas.fa-search {
-    position: relative;
     right: 25px;
     top: 10px;
     font-size: 18px;
@@ -190,12 +193,9 @@ aside {
 .filtros-boton-limpiar {
     padding: 0;
     margin: 0;
-    background: none;
-    border: none;
 }
 
 .productos-menu {
-    background-color: white;
     margin: 0 10px 10px;
     padding: 25px 30px;
 }
@@ -219,7 +219,6 @@ aside {
 }
 
 .producto-tarjeta {
-    background-color: #fff;
     width: 270px;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
     margin: 10px;
@@ -230,12 +229,9 @@ aside {
 
 .producto-tarjeta:hover {
     box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
-    ;
 }
 
 .producto-imagen-contenedor {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 250px;
@@ -258,8 +254,6 @@ aside {
 }
 
 .producto-descripcion, .producto-detalles {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -273,7 +267,7 @@ aside {
     width: 100%;
 }
 
-.boton-agregar-al-carrito{
+.boton-agregar-al-carrito {
     width: 100%;
 }
 
@@ -291,7 +285,6 @@ aside {
 footer {
     display: flex;
     justify-content: center;
-    background-color: #fff;
     padding: 40px 10px 30px;
     margin-top: 80px;
     font-size: 14px;
@@ -303,12 +296,14 @@ footer {
 }
 
 /*termina footer, comienza secci'on carrito*/
+.overlay, .carrito-seccion, .dialogo {
+    position: fixed;
+}
 
 .overlay {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
     top: 0;
 }
 
@@ -323,37 +318,23 @@ footer {
 }
 
 .carrito-seccion {
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    width: 100%;
     max-width: 400px;
     padding: 20px;
-    background-color: #ffffff;
     height: 100%;
-    position: fixed;
     transform: translateX(100%);
     right: 0;
     top: 0;
-    z-index: 1;
     transition: 0.3s;
 }
 
-.contenedor-carrito-lleno {
+.contenedor-carrito-lleno, .carrito-productos-agregados {
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     overflow-y: scroll;
 }
 
 .mensaje-carrito-lleno {
     margin: 15px 0;
-}
-
-.carrito-productos-agregados {
-    flex-grow: 1;
-    overflow-y: scroll;
 }
 
 .carrito-producto-tarjeta {
@@ -422,16 +403,9 @@ footer {
     align-items: center;
 }
 
-/*Termina secci'on carrito, comienza secci'on checkout*/
-
-.overlay.popups {
-    z-index: 1;
-}
-
+/*Termina secci'on carrito, comienza dialogo vaciar carrito*/
 .dialogo {
-    background-color: #fff;
     padding: 40px 30px;
-    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -444,13 +418,15 @@ footer {
     font-weight: 700;
 }
 
+.dialogo.vaciar-carrito-contenedor {
+    max-width: 500px;
+}
+
+/*Termina dialogo vaciar carrito, comienza secci'on checkout */
+
 .dialogo.checkout-seccion {
     width: 100%;
     height: 100%;
-}
-
-.dialogo.vaciar-carrito-contenedor {
-    max-width: 500px;
 }
 
 .checkout-formulario-contenedor {
@@ -585,10 +561,11 @@ footer {
         justify-content: flex-end;
         padding: 20px;
         width: 100%;
+    }
+    aside, .aside-filtros.boton-cerrar {
         background-color: #f5f5f5;
     }
     aside {
-        background-color: #f5f5f5;
         height: 100vh;
         position: fixed;
         transform: translateX(100%);

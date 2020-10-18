@@ -36,7 +36,7 @@
     <!--termina header, comienza main-->
     <main>
         <!--comienza aside(filtros)-->
-        <div class="overlay aside-filtros hidden" aria-hidden="true"></div>
+        <div class="overlay aside-filtros hidden" aria-hidden="true"></div> 
 
         <aside id="filtros" aria-labelledby="filtros-titulo">
             <div>
@@ -146,7 +146,7 @@
             </form>
         </aside>
 
-        <!--termina aside, comienza seccion menu productos-->
+        <!--termina aside filtros, comienza seccion menu productos-->
         <section class="productos-seccion">
             <header class="productos-menu">
                 <p class="productos-cantidad">
@@ -167,7 +167,7 @@
                     Filtros
                 </button>
             </header>
-            
+
             <!--termina menu productos, comienza seccion tabla productos-->
             <div class="productos-tarjetas-contenedor">
                 <article class="producto-tarjeta" data-nombre="celular xiaomi" data-categoria="celulares"
@@ -578,6 +578,7 @@
             </div>
         </section>
     </main>
+
     <!--termina main, comienza footer-->
     <footer class="footer-contenedor">
         <div class="footer-contenido" aria-labelledby="footer-mensaje">
@@ -585,9 +586,9 @@
             <p id="footer-mensaje" class="footer-mensaje">ADA SHOP - Gracias por visitarnos</p>
         </div>
     </footer>
+
     <!--termina footer, comienza secci'on carrito-->
-    <!--overlay para los sidebars-->
-    <div class="overlay sidebars hidden" aria-hidden="true"></div>
+    <div class="overlay sidebars hidden" aria-hidden="true"></div>     <!--overlay para los sidebars-->
 
     <section class="carrito-seccion" aria-labelledby="carrito-titulo">
         <header class="carrito-titulo-contenedor">
@@ -613,9 +614,10 @@
             </div>
         </div>
     </section>
-    <!--termina secci'on carrito, comienza secci'on checkout-->
-    <!--overlay para los mensajes tipo pop-up-->
-    <div class="overlay popups hidden">
+
+    <!--termina secci'on carrito, comienza popup advertencia vaciar carrito-->
+    
+    <div class="overlay popups hidden"> <!--overlay para los mensajes tipo pop-up-->
         <div class="dialogo vaciar-carrito-contenedor hidden" aria-describedby="vaciar-carrito-mensaje">
             <p class="vaciar-carrito-mensaje">Estás por vaciar el carrito, ¿quieres continuar?</p>
             <div class="vaciar-carrito botones-acciones">
@@ -628,6 +630,7 @@
             </div>
         </div>
 
+        <!--termina popup advertencia vaciar carrito, comienza secci'on checkout-->
         <section class="dialogo checkout-seccion hidden" aria-labelledby="checkout-seccion-titulo">
             <h2 id="checkout-seccion-titulo">Checkout</h2>
             <div class="checkout-formulario-contenedor">
@@ -635,9 +638,8 @@
                     <div class="formulario-datos-personales" aria-labelledby="datos-personales-titulo">
                         <h3 class="datos-personales-titulo">Datos Personales</h3>
                         <div class="datos-personales">
-                            <!--reemplazo (*) por (requerido) para mejorar la accseibilidad-->
                             <label for="nombre-apellido">
-                                Nombre y Apellido (requerido)
+                                Nombre y Apellido (requerido)    <!--reemplazo (*) por (requerido) para mejorar la accseibilidad-->
                                 <input id="nombre-apellido" type="text" placeholder="p. ej.: Ada Lovelace"
                                     name="nombre y apellido" required />
                             </label>
@@ -655,7 +657,7 @@
                         <div class="opciones-pago">
                             <label for="opciones-pago-efectivo">
                                 <input class="opciones-pago" id="opciones-pago-efectivo" type="radio"
-                                    name="opciones-pago" value="Efectivo o débito" checked/>
+                                    name="opciones-pago" value="Efectivo o débito" checked />
                                 Efectivo / Débito
                             </label>
                             <label for="opciones-pago-credito">

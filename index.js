@@ -536,7 +536,7 @@ let recargoPagoConCredito
 const tieneRecargoCredito = () => {
     let valorSubtotal = Number(subtotal.textContent.slice(1))
     if (radioPagoCredito.checked) {
-        recargoPagoConCredito = Number((valorSubtotal * 0.1).toFixed(2))
+        recargoPagoConCredito = Number((valorSubtotal * 0.1).toFixed(1))
         recargo.textContent = (`${`$`}${recargoPagoConCredito}`)
         parrafoRecargo.classList.remove('hidden')
     }
@@ -570,7 +570,7 @@ let valorDescuento
 const tieneTarjetaDescuento = () => {
     let valorSubtotal = Number(subtotal.textContent.slice(1))
     if (checkboxDescuento.checked) {
-        valorDescuento = Number((- valorSubtotal * 0.05).toFixed(2))
+        valorDescuento = Number((- valorSubtotal * 0.05).toFixed(1))
         descuento.textContent = (`${`$`}${valorDescuento}`)
         parrafoDescuento.classList.remove('hidden')
     }
