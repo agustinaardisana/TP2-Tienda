@@ -1,4 +1,4 @@
-# [🇺🇸EN] 🛒 Store 🛒 (under construction)
+# [🇺🇸EN] 🛒 Store 🛒
 
 This is the second project that I've worked on as part of the **Frontend web development** training at **ADA ITW**
 
@@ -23,7 +23,7 @@ This is my second coding project as well as my first time working with Javascrip
 
 ### 🖱️[click here to see it](https://agustinaardisana.github.io/TP2-Tienda/) 
 
-# [🇦🇷ESP] 🛒 Tienda 🛒 (en construcción)
+# [🇦🇷ESP] 🛒 Tienda 🛒
 
 Este es el segundo proyecto que forma parte de la currícula de la carrera de **Desarrollo Web Frontend** de **ADA ITW**.
 
